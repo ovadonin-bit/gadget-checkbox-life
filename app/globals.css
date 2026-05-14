@@ -1,0 +1,80 @@
+@import "tailwindcss";
+
+:root {
+  --font-inter: 'Inter', sans-serif;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+.product-description h2 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  border-top: 1px solid #e5e7eb;
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  margin-bottom: 0.75rem;
+}
+
+.product-description h2:first-child {
+  border-top: none;
+  padding-top: 0;
+  margin-top: 0;
+}
+
+.product-description h3 {
+  font-size: 1rem;
+  font-weight: 600;
+  color: #111827;
+  margin-top: 1.75rem;
+  margin-bottom: 0.5rem;
+  letter-spacing: -0.01em;
+}
+
+.product-description h3:first-child {
+  margin-top: 0;
+}
+
+.product-description figure {
+  margin: 1.25rem 0;
+}
+
+.product-description figure img {
+  width: 100%;
+  height: auto;
+  border-radius: 0.75rem;
+  background: #f9fafb;
+}
+
+.product-description p {
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1.7;
+  margin-bottom: 0.75rem;
+}
+
+.product-description ul, .product-description ol {
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+}
+
+.product-description li {
+  font-size: 0.875rem;
+  color: #4b5563;
+  line-height: 1.6;
+  margin-bottom: 0.25rem;
+}
+
+.scrollbar-none {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
