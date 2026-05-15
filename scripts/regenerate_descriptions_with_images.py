@@ -191,14 +191,15 @@ def process_product(client: OpenAI, product: dict, idx: int, total: int) -> bool
         log(f"[{idx}/{total}] {slug}  ! пустой результат")
         return False
 
-    upd = supabase_request(
-        "PATCH",
-        "g_products",
-        body={"description_html": description_html},
-        params={"id": f"eq.{product['id']}"},
-    )
-    if upd is None:
-        log(f"[{idx}/{total}] {slug}  ! не удалось записать")
+    try:
+        supabase_request(
+            "PATCH",
+            "g_products",
+            body={"description_html": description_html},
+            params={"id": f"eq.{product['id']}"},
+        )
+    except Exception as e:
+        log(f"[{idx}/{total}] {slug}  ! не удалось записать: {e}")
         return False
     log(f"[{idx}/{total}] {slug}  ✅ {len(sections)} секций, {len(description_html)} симв.")
     return True
