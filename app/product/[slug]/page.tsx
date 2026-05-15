@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Image from 'next/image'
 import Link from 'next/link'
-import { getProductBySlug, getCategoryById, getRelatedProducts } from '@/lib/db'
+import { getProductBySlug, getCategoryById, getSamePriceProducts, getBoughtTogetherProducts } from '@/lib/db'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { ProductCard } from '@/components/ProductCard'
 import { formatPrice, buildAffiliateLink } from '@/lib/utils'
@@ -42,9 +42,12 @@ export default async function ProductPage({ params }: Props) {
   const product = await getProductBySlug(slug)
   if (!product) notFound()
 
-  const [category, related] = await Promise.all([
-    getCategoryById(product.category_id),
-    getRelatedProducts(product.category_id, product.id, 8),
+  const category = await getCategoryById(product.category_id)
+  const [samePrice, boughtTogether] = await Promise.all([
+    product.price_rub != null
+      ? getSamePriceProducts(product.price_rub, product.category_id, product.brand, product.id, 8)
+      : Promise.resolve([]),
+    getBoughtTogetherProducts(product.id, category?.slug ?? '', product.brand, 4),
   ])
 
   const availability = product.in_stock
@@ -235,11 +238,22 @@ export default async function ProductPage({ params }: Props) {
         )}
       </article>
 
-      {related.length > 0 && (
-        <section className="mb-12">
-          <h2 className="text-lg font-semibold text-gray-900 mb-4">Смотрите также</h2>
+      {boughtTogether.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Обычно заказывают вместе</h2>
           <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
-            {related.map((p) => (
+            {boughtTogether.map((p) => (
+              <ProductCard key={p.id} product={p} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      {samePrice.length > 0 && (
+        <section className="mb-12">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">За ту же цену</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3">
+            {samePrice.map((p) => (
               <ProductCard key={p.id} product={p} />
             ))}
           </div>

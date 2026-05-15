@@ -19,9 +19,8 @@ for _line in _env_path.read_text().splitlines():
         _k, _, _v = _line.partition("=")
         os.environ.setdefault(_k.strip(), _v.strip())
 
-# Auto-serialize dicts and lists as JSON for JSONB columns
+# Auto-serialize dicts as JSON for JSONB columns (lists use native PG array adaptation)
 psycopg2.extensions.register_adapter(dict, Json)
-psycopg2.extensions.register_adapter(list, Json)
 
 _PG = dict(
     host=os.environ["PG_HOST"],

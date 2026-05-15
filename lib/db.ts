@@ -80,13 +80,63 @@ export async function getProductsByCategoryId(categoryId: number): Promise<Produ
   return rows as unknown as Product[]
 }
 
-export async function getRelatedProducts(categoryId: number, excludeId: number, limit = 8): Promise<Product[]> {
+// Products in the same price range (±10%), ordered by: same category → same brand → price closeness
+export async function getSamePriceProducts(
+  price: number,
+  categoryId: number,
+  brand: string,
+  excludeId: number,
+  limit = 8,
+): Promise<Product[]> {
+  const lo = Math.round(price * 0.9)
+  const hi = Math.round(price * 1.1)
   const rows = await sql`
-    SELECT * FROM g_products
-    WHERE category_id = ${categoryId}
-      AND is_published = true
+    SELECT *,
+      (category_id = ${categoryId})::int AS same_cat,
+      (brand = ${brand})::int        AS same_brand,
+      ABS(price_rub - ${price})      AS price_diff
+    FROM g_products
+    WHERE is_published = true
       AND id != ${excludeId}
-    ORDER BY price_rub ASC NULLS LAST
+      AND price_rub IS NOT NULL
+      AND price_rub BETWEEN ${lo} AND ${hi}
+    ORDER BY same_cat DESC, same_brand DESC, price_diff ASC
+    LIMIT ${limit}
+  `
+  return rows as unknown as Product[]
+}
+
+// Complementary category rules for "Обычно заказывают вместе"
+const COMPLEMENTARY: Record<string, string[]> = {
+  smartphones: ['watches', 'headphones', 'tablets', 'accessories'],
+  tablets:     ['headphones', 'watches', 'accessories', 'laptops'],
+  laptops:     ['headphones', 'tablets', 'accessories'],
+  watches:     ['smartphones', 'tablets'],
+  headphones:  ['smartphones', 'tablets', 'laptops'],
+  accessories: ['smartphones', 'tablets', 'laptops'],
+  gaming:      ['gaming', 'headphones'],
+  appliances:  ['appliances'],
+  lego:        ['lego'],
+}
+
+export async function getBoughtTogetherProducts(
+  currentId: number,
+  categorySlug: string,
+  brand: string,
+  limit = 4,
+): Promise<Product[]> {
+  const slugs = COMPLEMENTARY[categorySlug] ?? []
+  if (!slugs.length) return []
+  const rows = await sql`
+    SELECT p.*,
+      (p.brand = ${brand})::int AS same_brand
+    FROM g_products p
+    JOIN g_categories c ON c.id = p.category_id
+    WHERE c.slug = ANY(${slugs})
+      AND p.is_published = true
+      AND p.id != ${currentId}
+      AND p.in_stock = true
+    ORDER BY same_brand DESC, p.price_rub ASC NULLS LAST
     LIMIT ${limit}
   `
   return rows as unknown as Product[]
