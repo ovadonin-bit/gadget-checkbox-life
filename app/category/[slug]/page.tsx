@@ -1,10 +1,12 @@
 import type { Metadata } from 'next'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
-import { getCategoryBySlug, getProductsByCategoryId } from '@/lib/db'
-import { ProductCard } from '@/components/ProductCard'
+import { getCategoryBySlug, getProductsByCategoryId, getProductSummaryByCategoryId } from '@/lib/db'
+import { CategoryProductGrid } from '@/components/CategoryProductGrid'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { formatPriceNumber } from '@/lib/utils'
+
+const PAGE_SIZE = 36
 
 export const revalidate = 3600
 
@@ -28,15 +30,19 @@ export default async function CategoryPage({ params }: Props) {
   const category = await getCategoryBySlug(slug)
   if (!category) notFound()
 
-  const products = await getProductsByCategoryId(category.id)
+  const [summary, initialProducts] = await Promise.all([
+    getProductSummaryByCategoryId(category.id),
+    getProductsByCategoryId(category.id, PAGE_SIZE, 0),
+  ])
 
-  const inStock = products.filter((p) => p.in_stock && p.price_rub != null)
+  const totalCount = summary.length
+  const inStock = summary.filter((p) => p.in_stock && p.price_rub != null)
   const prices = inStock.map((p) => p.price_rub!).filter((n) => n > 0)
   const lowPrice = prices.length ? Math.min(...prices) : null
   const highPrice = prices.length ? Math.max(...prices) : null
 
   const brandCounts = new Map<string, number>()
-  for (const p of products) {
+  for (const p of summary) {
     brandCounts.set(p.brand, (brandCounts.get(p.brand) ?? 0) + 1)
   }
   const brands = [...brandCounts.entries()].sort((a, b) => b[1] - a[1])
@@ -65,7 +71,7 @@ export default async function CategoryPage({ params }: Props) {
       )}
 
       <div className="text-xs text-gray-500 mb-6">
-        Товаров в каталоге: {products.length}
+        Товаров в каталоге: {totalCount}
         {prices.length > 0 && lowPrice != null && highPrice != null && (
           <> · Цены от {formatPriceNumber(lowPrice)} до {formatPriceNumber(highPrice)} ₽</>
         )}
@@ -102,29 +108,16 @@ export default async function CategoryPage({ params }: Props) {
         </section>
       )}
 
-      {products.length === 0 ? (
+      {totalCount === 0 ? (
         <div className="rounded-xl border border-gray-200 bg-gray-50 p-8 text-center text-sm text-gray-500">
           Товары в этой категории появятся после первого парсинга. Возвращайтесь позже.
         </div>
       ) : (
-        <div
-          itemScope
-          itemType="https://schema.org/ItemList"
-          className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-3"
-        >
-          <meta itemProp="numberOfItems" content={String(products.length)} />
-          {products.map((p, i) => (
-            <div
-              key={p.id}
-              itemProp="itemListElement"
-              itemScope
-              itemType="https://schema.org/ListItem"
-            >
-              <meta itemProp="position" content={String(i + 1)} />
-              <ProductCard product={p} />
-            </div>
-          ))}
-        </div>
+        <CategoryProductGrid
+          initialProducts={initialProducts}
+          totalCount={totalCount}
+          categoryId={category.id}
+        />
       )}
     </main>
   )

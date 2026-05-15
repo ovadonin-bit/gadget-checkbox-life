@@ -71,13 +71,24 @@ export async function getProductBySlug(slug: string): Promise<Product | null> {
   return (rows[0] ?? null) as Product | null
 }
 
-export async function getProductsByCategoryId(categoryId: number): Promise<Product[]> {
+export async function getProductsByCategoryId(categoryId: number, limit = 9999, offset = 0): Promise<Product[]> {
   const rows = await sql`
     SELECT * FROM g_products
     WHERE category_id = ${categoryId} AND is_published = true
     ORDER BY in_stock DESC, updated_at DESC
+    LIMIT ${limit} OFFSET ${offset}
   `
   return rows as unknown as Product[]
+}
+
+export async function getProductSummaryByCategoryId(categoryId: number): Promise<{ brand: string; price_rub: number | null; in_stock: boolean }[]> {
+  const rows = await sql`
+    SELECT brand, price_rub, in_stock
+    FROM g_products
+    WHERE category_id = ${categoryId} AND is_published = true
+    ORDER BY in_stock DESC, updated_at DESC
+  `
+  return rows as unknown as { brand: string; price_rub: number | null; in_stock: boolean }[]
 }
 
 // Products in the same price range (±10%), ordered by: same category → same brand → price closeness
