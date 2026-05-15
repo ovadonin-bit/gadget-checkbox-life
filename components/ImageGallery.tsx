@@ -7,22 +7,20 @@ interface Props {
   productName: string
 }
 
+const NAV_BTN = "absolute top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-3xl w-11 h-11 flex items-center justify-center z-10 bg-black/30 hover:bg-black/50 rounded-full transition-colors"
+
 export function ImageGallery({ images, productName }: Props) {
-  const [lightboxOpen, setLightboxOpen] = useState(false)
-  const [current, setCurrent] = useState(0)
+  const [current, setCurrent] = useState<number | null>(null)
   const touchStartX = useRef<number | null>(null)
   const touchStartY = useRef<number | null>(null)
+  const isOpen = current !== null
 
-  const open = (index: number) => {
-    setCurrent(index)
-    setLightboxOpen(true)
-  }
-  const close = () => setLightboxOpen(false)
-  const prev = useCallback(() => setCurrent(i => (i - 1 + images.length) % images.length), [images.length])
-  const next = useCallback(() => setCurrent(i => (i + 1) % images.length), [images.length])
+  const close = () => setCurrent(null)
+  const prev = useCallback(() => setCurrent(i => i === null ? null : (i - 1 + images.length) % images.length), [images.length])
+  const next = useCallback(() => setCurrent(i => i === null ? null : (i + 1) % images.length), [images.length])
 
   useEffect(() => {
-    if (!lightboxOpen) return
+    if (!isOpen) return
     const onKey = (e: KeyboardEvent) => {
       if (e.key === 'Escape') close()
       else if (e.key === 'ArrowLeft') prev()
@@ -30,12 +28,13 @@ export function ImageGallery({ images, productName }: Props) {
     }
     window.addEventListener('keydown', onKey)
     return () => window.removeEventListener('keydown', onKey)
-  }, [lightboxOpen, prev, next])
+  }, [isOpen, prev, next])
 
   useEffect(() => {
-    document.body.style.overflow = lightboxOpen ? 'hidden' : ''
+    if (!isOpen) return
+    document.body.style.overflow = 'hidden'
     return () => { document.body.style.overflow = '' }
-  }, [lightboxOpen])
+  }, [isOpen])
 
   const onTouchStart = (e: React.TouchEvent) => {
     if (e.touches.length !== 1) return
@@ -46,7 +45,6 @@ export function ImageGallery({ images, productName }: Props) {
     if (touchStartX.current === null || touchStartY.current === null) return
     const dx = touchStartX.current - e.changedTouches[0].clientX
     const dy = touchStartY.current - e.changedTouches[0].clientY
-    // Only treat as swipe if horizontal movement dominates and exceeds threshold
     if (Math.abs(dx) > 50 && Math.abs(dx) > Math.abs(dy) * 1.5) {
       dx > 0 ? next() : prev()
     }
@@ -56,10 +54,9 @@ export function ImageGallery({ images, productName }: Props) {
 
   return (
     <>
-      {/* Main image */}
       <div
         className="aspect-square bg-gray-50 rounded-2xl overflow-hidden relative mb-3 cursor-zoom-in"
-        onClick={() => open(0)}
+        onClick={() => setCurrent(0)}
         role="button"
         aria-label="Открыть галерею"
       >
@@ -80,14 +77,13 @@ export function ImageGallery({ images, productName }: Props) {
         )}
       </div>
 
-      {/* Thumbnails */}
       {images.length > 1 && (
         <div className="grid grid-cols-5 gap-2">
           {images.slice(1, 6).map((url, i) => (
             <div
-              key={i}
+              key={url}
               className="aspect-square bg-gray-50 rounded-lg overflow-hidden relative cursor-zoom-in"
-              onClick={() => open(i + 1)}
+              onClick={() => setCurrent(i + 1)}
               role="button"
               aria-label={`Фото ${i + 2}`}
             >
@@ -103,15 +99,13 @@ export function ImageGallery({ images, productName }: Props) {
         </div>
       )}
 
-      {/* Lightbox */}
-      {lightboxOpen && (
+      {current !== null && (
         <div
           className="fixed inset-0 z-50 bg-black/92 flex items-center justify-center"
           onClick={close}
           onTouchStart={onTouchStart}
           onTouchEnd={onTouchEnd}
         >
-          {/* Close */}
           <button
             className="absolute top-4 right-4 text-white/80 hover:text-white text-2xl w-10 h-10 flex items-center justify-center z-10 bg-black/30 rounded-full transition-colors"
             onClick={close}
@@ -120,10 +114,9 @@ export function ImageGallery({ images, productName }: Props) {
             ✕
           </button>
 
-          {/* Prev */}
           {images.length > 1 && (
             <button
-              className="absolute left-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-3xl w-11 h-11 flex items-center justify-center z-10 bg-black/30 hover:bg-black/50 rounded-full transition-colors"
+              className={`${NAV_BTN} left-3`}
               onClick={e => { e.stopPropagation(); prev() }}
               aria-label="Предыдущее"
             >
@@ -131,10 +124,8 @@ export function ImageGallery({ images, productName }: Props) {
             </button>
           )}
 
-          {/* Image area — click doesn't close */}
           <div
-            className="relative w-full h-full"
-            style={{ padding: '56px 64px' }}
+            className="relative w-full h-full py-14 px-16"
             onClick={e => e.stopPropagation()}
           >
             <Image
@@ -144,14 +135,12 @@ export function ImageGallery({ images, productName }: Props) {
               sizes="100vw"
               className="object-contain"
               style={{ touchAction: 'pinch-zoom' }}
-              priority
             />
           </div>
 
-          {/* Next */}
           {images.length > 1 && (
             <button
-              className="absolute right-3 top-1/2 -translate-y-1/2 text-white/80 hover:text-white text-3xl w-11 h-11 flex items-center justify-center z-10 bg-black/30 hover:bg-black/50 rounded-full transition-colors"
+              className={`${NAV_BTN} right-3`}
               onClick={e => { e.stopPropagation(); next() }}
               aria-label="Следующее"
             >
@@ -159,19 +148,21 @@ export function ImageGallery({ images, productName }: Props) {
             </button>
           )}
 
-          {/* Counter + dots */}
           {images.length > 1 && (
             <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex items-center gap-2 z-10">
-              {images.slice(0, 10).map((_, i) => (
-                <button
-                  key={i}
-                  className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? 'bg-white scale-125' : 'bg-white/40'}`}
-                  onClick={e => { e.stopPropagation(); setCurrent(i) }}
-                  aria-label={`Фото ${i + 1}`}
-                />
-              ))}
-              {images.length > 10 && (
-                <span className="text-white/60 text-xs ml-1">{current + 1}/{images.length}</span>
+              {images.length <= 10 ? (
+                images.map((_, i) => (
+                  <button
+                    key={i}
+                    className={`w-1.5 h-1.5 rounded-full transition-all ${i === current ? 'bg-white scale-125' : 'bg-white/40'}`}
+                    onClick={e => { e.stopPropagation(); setCurrent(i) }}
+                    aria-label={`Фото ${i + 1}`}
+                  />
+                ))
+              ) : (
+                <span className="text-white/60 text-sm bg-black/50 px-3 py-1 rounded-full">
+                  {current + 1} / {images.length}
+                </span>
               )}
             </div>
           )}
