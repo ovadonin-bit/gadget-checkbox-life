@@ -22,6 +22,7 @@ export function slugifyBrand(brand: string): string {
 
 const HISTORE_DEEPLINK = 'https://wpmsx.com/g/hwysxaae1b7ad04f0a593a4ea8cf25/?erid=2bL9aMPo2e49hMef4piUAotQ6a'
 const BEELINE_DEEPLINK = 'https://rcpsj.com/g/exxsgtkm6c7ad04f0a59dbadac95b8/?erid=2bL9aMPo2e49hMef4phUdXKkvx'
+const ONECLICK_DEEPLINK = 'https://dbnua.com/g/3r14duvwf07ad04f0a599ac4fee4f4/?erid=2bL9aMPo2e49hMef4rqytJL1Um'
 
 export function buildHistoreDeeplink(productUrl: string): string {
   return `${HISTORE_DEEPLINK}&ulp=${encodeURIComponent(productUrl)}`
@@ -29,6 +30,10 @@ export function buildHistoreDeeplink(productUrl: string): string {
 
 export function buildBeelineDeeplink(productUrl: string): string {
   return `${BEELINE_DEEPLINK}&ulp=${encodeURIComponent(productUrl)}`
+}
+
+export function buildOneclickDeeplink(productUrl: string): string {
+  return `${ONECLICK_DEEPLINK}&ulp=${encodeURIComponent(productUrl)}`
 }
 
 /**

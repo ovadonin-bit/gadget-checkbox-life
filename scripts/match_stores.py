@@ -1,6 +1,6 @@
 #!/opt/homebrew/bin/python3
 """
-Шаг 1: Парсим каталоги Hi Store и Билайн, сохраняем все товары.
+Шаг 1: Парсим каталоги Hi Store, Билайн и 1click.ru, сохраняем все товары.
 Шаг 2: Fuzzy-матчинг с нашими товарами из БД.
 Шаг 3: Экспортируем CSV для проверки, затем заливаем в БД.
 
@@ -48,8 +48,17 @@ BEELINE_BASE = "https://moskva.beeline.ru"
 HISTORE_DEEPLINK = "https://wpmsx.com/g/hwysxaae1b7ad04f0a593a4ea8cf25/?erid=2bL9aMPo2e49hMef4piUAotQ6a"
 BEELINE_DEEPLINK = "https://rcpsj.com/g/exxsgtkm6c7ad04f0a59dbadac95b8/?erid=2bL9aMPo2e49hMef4phUdXKkvx"
 
+ONECLICK_CATEGORIES = [
+    "https://1click.ru/catalogue/phones/",
+    "https://1click.ru/catalogue/tablets/",
+    "https://1click.ru/catalogue/aksessuary-chasy/",
+]
+ONECLICK_BASE = "https://1click.ru"
+ONECLICK_DEEPLINK = "https://dbnua.com/g/3r14duvwf07ad04f0a599ac4fee4f4/?erid=2bL9aMPo2e49hMef4rqytJL1Um"
+
 HISTORE_CATALOG_FILE = Path(__file__).parent / "histore_catalog.json"
 BEELINE_CATALOG_FILE = Path(__file__).parent / "beeline_catalog.json"
+ONECLICK_CATALOG_FILE = Path(__file__).parent / "oneclick_catalog.json"
 MATCH_CSV = Path(__file__).parent / "store_matches.csv"
 
 DELAY = 0.6
@@ -216,6 +225,60 @@ def scrape_beeline() -> list[dict]:
     return products
 
 
+# ── Парсинг 1click.ru ─────────────────────────────────────────────────────
+
+def scrape_oneclick() -> list[dict]:
+    """Возвращает [{name, url, norm}] для всех товаров 1click.ru.
+
+    Структура URL модели: /catalogue/{cat}/{brand}/{model}/ (4 сегмента).
+    Имя берём из текста ссылки прямо на странице категории.
+    """
+    import json, re as _re
+
+    products: list[dict] = []
+    seen: set[str] = set()
+
+    # Ищем ссылки вида /catalogue/X/Y/Z/ (ровно 4 path-сегмента, все строчные)
+    model_re = _re.compile(
+        r'<a[^>]+href="(/catalogue/[a-z0-9_-]+/[a-z0-9_-]+/[a-z0-9_-]+/)"[^>]*>\s*([^<\n]{3,120})'
+    )
+
+    for cat_url in ONECLICK_CATEGORIES:
+        print(f"  1click: {cat_url}")
+        page = 1
+        while True:
+            url = cat_url if page == 1 else f"{cat_url}?PAGEN_1={page}"
+            try:
+                html = fetch(url)
+            except Exception as e:
+                print(f"    ⚠ {e}")
+                break
+
+            found = model_re.findall(html)
+            new = [(u, n.strip()) for u, n in found if u not in seen and n.strip()]
+            if not new:
+                break
+
+            for rel, name in new:
+                seen.add(rel)
+                full_url = ONECLICK_BASE + rel
+                products.append({
+                    "name": name,
+                    "url": full_url,
+                    "norm": normalize(name),
+                })
+
+            print(f"    стр.{page}: +{len(new)} товаров (итого {len(products)})")
+            page += 1
+            time.sleep(DELAY)
+
+    ONECLICK_CATALOG_FILE.write_text(
+        json.dumps(products, ensure_ascii=False, indent=2), encoding="utf-8"
+    )
+    print(f"  ✅ 1click.ru: {len(products)} товаров → {ONECLICK_CATALOG_FILE.name}")
+    return products
+
+
 # ── Fuzzy-матчинг ──────────────────────────────────────────────────────────
 
 def fuzzy_score(a: str, b: str) -> int:
@@ -276,6 +339,7 @@ def best_match(our_name: str, catalog: list[dict]) -> tuple[dict | None, int]:
 def run_matching(
     histore: list[dict],
     beeline: list[dict],
+    oneclick: list[dict],
 ) -> None:
     import json
 
@@ -291,8 +355,6 @@ def run_matching(
 
     rows = []
     for (pid, slug, brand, name) in our_products:
-        norm = normalize(name)
-
         # Hi Store — только Apple
         hi_url, hi_score = '', 0
         if brand and brand.lower() == 'apple':
@@ -306,7 +368,13 @@ def run_matching(
         if item:
             bl_url = item["url"]
 
-        if hi_url or bl_url:
+        # 1click.ru — все бренды
+        oc_url, oc_score = '', 0
+        item, oc_score = best_match(name, oneclick)
+        if item:
+            oc_url = item["url"]
+
+        if hi_url or bl_url or oc_url:
             rows.append({
                 "id": pid,
                 "slug": slug,
@@ -317,6 +385,9 @@ def run_matching(
                 "beeline_url": bl_url,
                 "bl_score": bl_score,
                 "beeline_deeplink": make_deeplink(BEELINE_DEEPLINK, bl_url) if bl_url else '',
+                "oneclick_url": oc_url,
+                "oc_score": oc_score,
+                "oneclick_deeplink": make_deeplink(ONECLICK_DEEPLINK, oc_url) if oc_url else '',
             })
 
     with MATCH_CSV.open("w", newline="", encoding="utf-8") as f:
@@ -324,15 +395,18 @@ def run_matching(
             "id", "slug", "name",
             "histore_url", "hi_score", "histore_deeplink",
             "beeline_url", "bl_score", "beeline_deeplink",
+            "oneclick_url", "oc_score", "oneclick_deeplink",
         ])
         writer.writeheader()
         writer.writerows(rows)
 
     matched_hi = sum(1 for r in rows if r["histore_url"])
     matched_bl = sum(1 for r in rows if r["beeline_url"])
+    matched_oc = sum(1 for r in rows if r["oneclick_url"])
     print(f"\n✅ Матчинг завершён: {len(rows)} товаров")
     print(f"  Hi Store:  {matched_hi} совпадений")
     print(f"  Beeline:   {matched_bl} совпадений")
+    print(f"  1click.ru: {matched_oc} совпадений")
     print(f"  CSV:       {MATCH_CSV}")
 
 
@@ -348,15 +422,18 @@ def run_apply() -> None:
     updated = 0
     with MATCH_CSV.open(encoding="utf-8") as f:
         for row in csv.DictReader(f):
-            hi = row["histore_url"].strip()
-            bl = row["beeline_url"].strip()
-            if not hi and not bl:
+            hi = row.get("histore_url", "").strip()
+            bl = row.get("beeline_url", "").strip()
+            oc = row.get("oneclick_url", "").strip()
+            if not hi and not bl and not oc:
                 continue
             cur.execute("""
                 UPDATE g_products
-                SET histore_url = NULLIF(%s,''), beeline_url = NULLIF(%s,'')
+                SET histore_url  = NULLIF(%s,''),
+                    beeline_url  = NULLIF(%s,''),
+                    oneclick_url = NULLIF(%s,'')
                 WHERE id = %s
-            """, (hi or None, bl or None, int(row["id"])))
+            """, (hi or None, bl or None, oc or None, int(row["id"])))
             updated += 1
 
     conn.commit()
@@ -378,7 +455,7 @@ def main() -> None:
         p.print_help()
         return
 
-    histore, beeline = [], []
+    histore, beeline, oneclick = [], [], []
 
     if args.scrape:
         import json
@@ -386,6 +463,8 @@ def main() -> None:
         histore = scrape_histore()
         print("\n📦 Парсим Beeline...")
         beeline = scrape_beeline()
+        print("\n📦 Парсим 1click.ru...")
+        oneclick = scrape_oneclick()
     elif args.match:
         import json
         if HISTORE_CATALOG_FILE.exists():
@@ -394,10 +473,13 @@ def main() -> None:
         if BEELINE_CATALOG_FILE.exists():
             beeline = json.loads(BEELINE_CATALOG_FILE.read_text(encoding="utf-8"))
             print(f"📂 Beeline: загружено {len(beeline)} из кэша")
+        if ONECLICK_CATALOG_FILE.exists():
+            oneclick = json.loads(ONECLICK_CATALOG_FILE.read_text(encoding="utf-8"))
+            print(f"📂 1click.ru: загружено {len(oneclick)} из кэша")
 
     if args.match:
         print("\n🔍 Матчинг...")
-        run_matching(histore, beeline)
+        run_matching(histore, beeline, oneclick)
 
     if args.apply:
         print("\n💾 Заливаем в БД...")

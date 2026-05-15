@@ -6,7 +6,7 @@ import { getProductBySlug, getCategoryById, getSamePriceProducts, getBoughtToget
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { ProductCard } from '@/components/ProductCard'
 import { ImageGallery } from '@/components/ImageGallery'
-import { formatPrice, formatPriceNumber, buildAffiliateLink, buildHistoreDeeplink, buildBeelineDeeplink } from '@/lib/utils'
+import { formatPrice, formatPriceNumber, buildAffiliateLink, buildHistoreDeeplink, buildBeelineDeeplink, buildOneclickDeeplink } from '@/lib/utils'
 import { splitSpecs } from '@/lib/specs'
 
 export const revalidate = 3600
@@ -186,7 +186,7 @@ export default async function ProductPage({ params }: Props) {
               Купить на biggeek.ru
             </a>
 
-            {(product.histore_url || product.beeline_url) && (
+            {(product.histore_url || product.beeline_url || product.oneclick_url) && (
               <div className="flex flex-col gap-2 mt-2">
                 {product.histore_url && (
                   <a
@@ -206,6 +206,16 @@ export default async function ProductPage({ params }: Props) {
                     className="block w-full text-center bg-white hover:bg-gray-50 text-gray-900 font-medium text-sm py-3 rounded-xl border border-gray-200 transition-colors"
                   >
                     Купить на Билайн.ру
+                  </a>
+                )}
+                {product.oneclick_url && (
+                  <a
+                    href={buildOneclickDeeplink(product.oneclick_url)}
+                    target="_blank"
+                    rel="nofollow noopener sponsored"
+                    className="block w-full text-center bg-white hover:bg-gray-50 text-gray-900 font-medium text-sm py-3 rounded-xl border border-gray-200 transition-colors"
+                  >
+                    Купить на 1click.ru
                   </a>
                 )}
               </div>

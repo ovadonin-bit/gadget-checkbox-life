@@ -36,6 +36,7 @@ export interface Product {
   is_published: boolean
   histore_url: string | null
   beeline_url: string | null
+  oneclick_url: string | null
 }
 
 export interface PriceHistoryRow {
