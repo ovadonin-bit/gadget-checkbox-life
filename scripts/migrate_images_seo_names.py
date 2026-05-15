@@ -46,10 +46,10 @@ def log(msg: str) -> None:
 def make_r2_client():
     return boto3.client(
         "s3",
-        endpoint_url=os.environ["R2_ENDPOINT"],
-        aws_access_key_id=os.environ["R2_ACCESS_KEY_ID"],
-        aws_secret_access_key=os.environ["R2_SECRET_ACCESS_KEY"],
-        region_name="auto",
+        endpoint_url=os.environ["S3_ENDPOINT"],
+        aws_access_key_id=os.environ["S3_ACCESS_KEY_ID"],
+        aws_secret_access_key=os.environ["S3_SECRET_ACCESS_KEY"],
+        region_name=os.environ.get("S3_REGION","ru-1"),
         config=Config(signature_version="s3v4"),
     )
 
@@ -227,12 +227,12 @@ def main():
     p.add_argument("--concurrency", type=int, default=6)
     args = p.parse_args()
 
-    for v in ("R2_ENDPOINT", "R2_ACCESS_KEY_ID", "R2_SECRET_ACCESS_KEY", "R2_BUCKET_NAME", "R2_PUBLIC_URL"):
+    for v in ("S3_ENDPOINT", "S3_ACCESS_KEY_ID", "S3_SECRET_ACCESS_KEY", "S3_BUCKET_NAME", "R2_PUBLIC_URL"):
         if not os.environ.get(v):
             print(f"❌ {v} не задан")
             sys.exit(1)
 
-    bucket = os.environ["R2_BUCKET_NAME"]
+    bucket = os.environ["S3_BUCKET_NAME"]
     public_base = os.environ["R2_PUBLIC_URL"].rstrip("/")
     client = make_r2_client()
 

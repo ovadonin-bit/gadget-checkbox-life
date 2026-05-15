@@ -204,55 +204,88 @@ def slug_from_product_url(product_path: str) -> str:
     return product_path.rstrip("/").rsplit("/", 1)[-1]
 
 
-# ---------- Supabase REST helpers ----------
+# ---------- PostgreSQL helpers (Supabase-compatible interface) ----------
 
-def supabase_headers() -> dict[str, str]:
-    key = os.environ["SUPABASE_SERVICE_ROLE_KEY"]
-    return {
-        "Content-Type": "application/json",
-        "apikey": key,
-        "Authorization": f"Bearer {key}",
-        "Prefer": "return=representation",
-    }
+from pg import pg_select, pg_insert, pg_upsert, pg_update, pg_execute  # noqa: E402
+
+
+def _parse_sb_params(params: dict) -> tuple[str, dict | None, int | None, str | None]:
+    """Convert Supabase REST params to (columns, where, limit, order)."""
+    columns = params.get("select", "*")
+    limit = int(params["limit"]) if "limit" in params else None
+    order_raw = params.get("order")
+    order = None
+    if order_raw:
+        # "id.asc" → "id ASC"
+        parts = order_raw.split(".")
+        order = f"{parts[0]} {parts[1].upper()}" if len(parts) == 2 else parts[0]
+    where: dict = {}
+    for k, v in params.items():
+        if k in ("select", "limit", "order"):
+            continue
+        if isinstance(v, str) and v.startswith("eq."):
+            raw = v[3:]
+            if raw == "true":
+                where[k] = True
+            elif raw == "false":
+                where[k] = False
+            else:
+                try:
+                    where[k] = int(raw)
+                except ValueError:
+                    where[k] = raw
+        elif isinstance(v, str) and v == "is.null":
+            where[k] = None
+    return columns, where or None, limit, order
 
 
 def supabase_request(method: str, path: str, body=None, params: dict | None = None):
-    url = f'{os.environ["NEXT_PUBLIC_SUPABASE_URL"]}/rest/v1/{path}'
-    if params:
-        url += "?" + urllib.parse.urlencode(params)
-    data = json.dumps(body).encode() if body is not None else None
-    req = urllib.request.Request(url, data=data, headers=supabase_headers(), method=method)
-    for attempt in range(3):
-        try:
-            with urllib.request.urlopen(req, timeout=30) as r:
-                raw = r.read()
-                return json.loads(raw) if raw else None
-        except urllib.error.HTTPError as e:
-            err = e.read().decode("utf-8", errors="ignore")
-            print(f"  ! Supabase {method} {path}: HTTP {e.code} {err}")
-            if e.code in (400, 404, 409):
+    """PostgreSQL-backed drop-in for Supabase REST API calls."""
+    try:
+        if method == "GET":
+            columns, where, limit, order = _parse_sb_params(params or {})
+            return pg_select(path, columns=columns, where=where, limit=limit, order=order)
+        elif method == "POST":
+            if body is None:
                 return None
-        except Exception as e:
-            print(f"  ! Supabase {method} {path}: {e}")
-            time.sleep(2 ** attempt)
-    return None
+            rows = body if isinstance(body, list) else [body]
+            return pg_insert(path, rows)
+        elif method == "PATCH":
+            if not body:
+                return None
+            where: dict = {}
+            for k, v in (params or {}).items():
+                if isinstance(v, str) and v.startswith("eq."):
+                    raw = v[3:]
+                    try:
+                        where[k] = int(raw)
+                    except ValueError:
+                        where[k] = raw
+            pg_update(path, where=where, data=body)
+            return None
+        elif method == "DELETE":
+            from pg import pg_delete
+            where = {}
+            for k, v in (params or {}).items():
+                if isinstance(v, str) and v.startswith("eq."):
+                    raw = v[3:]
+                    try:
+                        where[k] = int(raw)
+                    except ValueError:
+                        where[k] = raw
+            pg_delete(path, where or None)
+            return None
+    except Exception as e:
+        print(f"  ! DB {method} {path}: {e}")
+        return None
 
 
 def supabase_upsert(table: str, body, on_conflict: str):
-    url = f'{os.environ["NEXT_PUBLIC_SUPABASE_URL"]}/rest/v1/{table}?on_conflict={on_conflict}'
-    headers = {**supabase_headers(), "Prefer": "resolution=merge-duplicates,return=representation"}
-    data = json.dumps(body).encode()
-    req = urllib.request.Request(url, data=data, headers=headers, method="POST")
-    for attempt in range(3):
-        try:
-            with urllib.request.urlopen(req, timeout=30) as r:
-                raw = r.read()
-                return json.loads(raw) if raw else None
-        except urllib.error.HTTPError as e:
-            err = e.read().decode("utf-8", errors="ignore")
-            print(f"  ! Supabase upsert {table}: HTTP {e.code} {err}")
-            return None
-        except Exception as e:
-            print(f"  ! Supabase upsert {table}: {e}")
-            time.sleep(2 ** attempt)
-    return None
+    """PostgreSQL-backed drop-in for Supabase upsert."""
+    try:
+        rows = body if isinstance(body, list) else [body]
+        result = pg_upsert(table, rows, on_conflict)
+        return result
+    except Exception as e:
+        print(f"  ! DB upsert {table}: {e}")
+        return None
