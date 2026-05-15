@@ -5,6 +5,7 @@ import Link from 'next/link'
 import { getProductBySlug, getCategoryById, getSamePriceProducts, getBoughtTogetherProducts } from '@/lib/db'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { ProductCard } from '@/components/ProductCard'
+import { ImageGallery } from '@/components/ImageGallery'
 import { formatPrice, formatPriceNumber, buildAffiliateLink, buildHistoreDeeplink, buildBeelineDeeplink } from '@/lib/utils'
 import { splitSpecs } from '@/lib/specs'
 
@@ -114,38 +115,7 @@ export default async function ProductPage({ params }: Props) {
       >
         {/* Галерея */}
         <div>
-          <div className="aspect-square bg-gray-50 rounded-2xl overflow-hidden relative mb-3">
-            {product.image_urls[0] ? (
-              <Image
-                src={product.image_urls[0]}
-                alt={product.name}
-                fill
-                sizes="(max-width: 768px) 100vw, 50vw"
-                className="object-contain p-6"
-                itemProp="image"
-                priority
-              />
-            ) : (
-              <div className="absolute inset-0 flex items-center justify-center text-gray-300 text-sm">
-                Нет фото
-              </div>
-            )}
-          </div>
-          {product.image_urls.length > 1 && (
-            <div className="grid grid-cols-5 gap-2">
-              {product.image_urls.slice(1, 6).map((url, i) => (
-                <div key={i} className="aspect-square bg-gray-50 rounded-lg overflow-hidden relative">
-                  <Image
-                    src={url}
-                    alt={`${product.name} — фото ${i + 2}`}
-                    fill
-                    sizes="20vw"
-                    className="object-contain p-2"
-                  />
-                </div>
-              ))}
-            </div>
-          )}
+          <ImageGallery images={product.image_urls} productName={product.name} />
           <p className="text-xs text-gray-400 mt-2">
             Фото:{' '}
             <a
