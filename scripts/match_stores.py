@@ -67,7 +67,7 @@ _NORM_RE = [
     (re.compile(r'\b(nano|micro|esim|plusesim|nano\+esim|dual\s*sim|без\s*rustore|bez\s*rustore|rustore|bez)\b', re.I), ''),
     (re.compile(r'\b[A-Z0-9]{6,}\b'), ''),   # артикулы заглавными (MLNC3AHA)
     (re.compile(r'\b(?=[a-z]*[0-9])[a-z][a-z0-9]{5,}\b'), ''),  # артикулы строчными (mg8g4kha)
-    (re.compile(r'[+/|()[\]«»""„\-]'), ' '),
+    (re.compile(r'[+/|()[\]«»""„\-\",\'`]'), ' '),
     (re.compile(r'\s{2,}'), ' '),
 ]
 
@@ -75,10 +75,11 @@ _COLORS_RU = re.compile(
     r'\b(черный|чёрный|белый|синий|голубой|зеленый|зелёный|красный|желтый|жёлтый|'
     r'фиолетовый|розовый|серый|серебристый|золотой|оранжевый|бежевый|коричневый|'
     r'насыщенный|туманно|туманный|шалфейный|лавандовый|космический|натуральный|'
-    r'глубокий|светлый|тёмный|темный|снежный|кремовый|пустынный|облачно|небесно|'
+    r'глубокий|светлый|тёмный|темный|снежный|кремовый|пустынный|облачно|небесно|космос|'
+    r'серо|тёмно|темно|светло|сияющая|звезда|ночь|'
     r'midnight|starlight|natural|black|white|blue|green|red|purple|pink|silver|gold|'
     r'orange|cosmic|deep|light|space|desert|titanium|lavender|sage|teal|ultramarine|'
-    r'mist|slate|storm|sand|clay|cloud|sky|tolko|only)\b',
+    r'mist|slate|storm|sand|clay|cloud|sky|tolko|only|grey)\b',
     re.I,
 )
 
@@ -90,6 +91,19 @@ def normalize(name: str) -> str:
     s = _COLORS_RU.sub('', s)
     s = re.sub(r'\s{2,}', ' ', s).strip()
     return s
+
+
+def normalize_with_colors(name: str) -> tuple[str, set[str]]:
+    """Возвращает (structural_norm, colors).
+    structural_norm — токены без цветов (iphone+17+256gb+pro).
+    colors — найденные цветовые токены для опциональной проверки."""
+    s = name.lower().strip()
+    for pattern, repl in _NORM_RE:
+        s = pattern.sub(repl, s)
+    colors = {m.group(0).lower() for m in _COLORS_RU.finditer(s)}
+    s = _COLORS_RU.sub('', s)
+    s = re.sub(r'\s{2,}', ' ', s).strip()
+    return s, colors
 
 
 def slug_to_name(slug: str) -> str:
@@ -214,20 +228,49 @@ def fuzzy_score(a: str, b: str) -> int:
     return int(100 * len(inter) / max(len(ta), len(tb)))
 
 
-def _tier(norm: str) -> tuple[bool, bool]:
-    """Возвращает (has_pro, has_max) для проверки тира модели."""
-    tokens = set(norm.split())
-    return ('pro' in tokens, 'max' in tokens)
+_TIER_TOKENS = frozenset({'pro', 'max', 'air', 'ultra', 'plus', 'mini', 'lite'})
+_MAX_EXTRA = 3  # максимум лишних НЕ-тировых токенов у кандидата
 
+def best_match(our_name: str, catalog: list[dict]) -> tuple[dict | None, int]:
+    """Двухпроходный матчинг:
+    1. Tier совпадает точно + все наши структурные токены у кандидата + цвет → score 100
+    2. То же, без цвета → score 90
+    Tier (pro/max/air/ultra/plus/mini) должен совпадать в обоих направлениях.
+    Допускаем у кандидата до _MAX_EXTRA лишних НЕ-тировых токенов.
+    """
+    our_struct, our_colors = normalize_with_colors(our_name)
+    our_tokens = frozenset(our_struct.split())
+    if not our_tokens:
+        return None, 0
+    our_tier = our_tokens & _TIER_TOKENS
 
-def best_match(norm_query: str, catalog: list[dict]) -> tuple[dict | None, int]:
-    best, best_score = None, 0
-    q_tier = _tier(norm_query)
+    with_color: dict | None = None
+    without_color: dict | None = None
+
     for item in catalog:
-        s = fuzzy_score(norm_query, item["norm"])
-        if s > best_score and _tier(item["norm"]) == q_tier:
-            best, best_score = item, s
-    return best, best_score
+        item_struct, item_colors = normalize_with_colors(item["name"])
+        item_tokens = frozenset(item_struct.split())
+        # Tier должен совпадать точно в обоих направлениях
+        if (item_tokens & _TIER_TOKENS) != our_tier:
+            continue
+        # Все наши токены должны присутствовать у кандидата
+        if not our_tokens <= item_tokens:
+            continue
+        # Кандидат не должен иметь много лишних НЕ-тировых токенов
+        extra_non_tier = (item_tokens - our_tokens) - _TIER_TOKENS
+        if len(extra_non_tier) > _MAX_EXTRA:
+            continue
+        if our_colors & item_colors:
+            with_color = item
+            break
+        if without_color is None:
+            without_color = item
+
+    if with_color:
+        return with_color, 100
+    if without_color:
+        return without_color, 90
+    return None, 0
 
 
 def run_matching(
@@ -253,14 +296,14 @@ def run_matching(
         # Hi Store — только Apple
         hi_url, hi_score = '', 0
         if brand and brand.lower() == 'apple':
-            item, hi_score = best_match(norm, histore)
-            if item and hi_score >= MATCH_THRESHOLD:
+            item, hi_score = best_match(name, histore)
+            if item:
                 hi_url = item["url"]
 
         # Beeline — все бренды
         bl_url, bl_score = '', 0
-        item, bl_score = best_match(norm, beeline)
-        if item and bl_score >= MATCH_THRESHOLD:
+        item, bl_score = best_match(name, beeline)
+        if item:
             bl_url = item["url"]
 
         if hi_url or bl_url:

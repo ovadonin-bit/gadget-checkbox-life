@@ -2,651 +2,1103 @@
   {
     "name": "apple watch band",
     "url": "https://hi-stores.ru/catalog/apple-watch/apple-watch-band/",
-    "norm": "apple watch band"
+    "norm": "apple watch band",
+    "colors": []
   },
   {
     "name": "apple vision pro",
     "url": "https://hi-stores.ru/catalog/apple/apple-vision-pro/",
-    "norm": "apple vision pro"
+    "norm": "apple vision pro",
+    "colors": []
   },
   {
     "name": "apple trade in",
     "url": "https://hi-stores.ru/catalog/cut-price/apple-trade-in/",
-    "norm": "apple trade in"
+    "norm": "apple trade in",
+    "colors": []
   },
   {
     "name": "apple iphone",
     "url": "https://hi-stores.ru/catalog/smartphones/apple-iphone/",
-    "norm": "apple iphone"
+    "norm": "apple iphone",
+    "colors": []
   },
   {
     "name": "apple airpods",
     "url": "https://hi-stores.ru/catalog/audio/headphones/apple-airpods/",
-    "norm": "apple airpods"
+    "norm": "apple airpods",
+    "colors": []
   },
   {
     "name": "apple homepod",
     "url": "https://hi-stores.ru/catalog/audio/smart-speakers/apple-homepod/",
-    "norm": "apple homepod"
+    "norm": "apple homepod",
+    "colors": []
   },
   {
     "name": "apple ipad",
     "url": "https://hi-stores.ru/catalog/tablets/apple-ipad/",
-    "norm": "apple ipad"
+    "norm": "apple ipad",
+    "colors": []
   },
   {
     "name": "apple iphone 17 pro max 256gb esim deep blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-256gb-esim-deep-blue/",
-    "norm": "apple iphone 17 pro max 256gb"
+    "norm": "apple iphone 17 pro max 256gb",
+    "colors": [
+      "blue",
+      "deep"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 256gb esim cosmic orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-256gb-esim-cosmic-orange/",
-    "norm": "apple iphone 17 pro max 256gb"
+    "norm": "apple iphone 17 pro max 256gb",
+    "colors": [
+      "cosmic",
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 256gb esim silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-256gb-esim-silver/",
-    "norm": "apple iphone 17 pro max 256gb"
+    "norm": "apple iphone 17 pro max 256gb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 256gb orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-256gb-orange/",
-    "norm": "apple iphone 17 pro max 256gb"
+    "norm": "apple iphone 17 pro max 256gb",
+    "colors": [
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 256gb blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-256gb-blue/",
-    "norm": "apple iphone 17 pro max 256gb"
+    "norm": "apple iphone 17 pro max 256gb",
+    "colors": [
+      "blue"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 256gb silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-256gb-silver/",
-    "norm": "apple iphone 17 pro max 256gb"
+    "norm": "apple iphone 17 pro max 256gb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 512gb esim cosmic orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-512gb-esim-cosmic-orange/",
-    "norm": "apple iphone 17 pro max 512gb"
+    "norm": "apple iphone 17 pro max 512gb",
+    "colors": [
+      "cosmic",
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 1tb esim cosmic orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-1tb-esim-cosmic-orange/",
-    "norm": "apple iphone 17 pro max 1tb"
+    "norm": "apple iphone 17 pro max 1tb",
+    "colors": [
+      "cosmic",
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 512gb esim deep blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-512gb-esim-deep-blue/",
-    "norm": "apple iphone 17 pro max 512gb"
+    "norm": "apple iphone 17 pro max 512gb",
+    "colors": [
+      "blue",
+      "deep"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 512gb orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-512gb-orange/",
-    "norm": "apple iphone 17 pro max 512gb"
+    "norm": "apple iphone 17 pro max 512gb",
+    "colors": [
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 512gb esim silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-512gb-esim-silver/",
-    "norm": "apple iphone 17 pro max 512gb"
+    "norm": "apple iphone 17 pro max 512gb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 1tb esim deep blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-1tb-esim-deep-blue/",
-    "norm": "apple iphone 17 pro max 1tb"
+    "norm": "apple iphone 17 pro max 1tb",
+    "colors": [
+      "blue",
+      "deep"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 512gb silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-512gb-silver/",
-    "norm": "apple iphone 17 pro max 512gb"
+    "norm": "apple iphone 17 pro max 512gb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 512gb blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-512gb-blue/",
-    "norm": "apple iphone 17 pro max 512gb"
+    "norm": "apple iphone 17 pro max 512gb",
+    "colors": [
+      "blue"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 1tb esim silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-1tb-esim-silver/",
-    "norm": "apple iphone 17 pro max 1tb"
+    "norm": "apple iphone 17 pro max 1tb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 2tb esim cosmic orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-2tb-esim-cosmic-orange/",
-    "norm": "apple iphone 17 pro max 2tb"
+    "norm": "apple iphone 17 pro max 2tb",
+    "colors": [
+      "cosmic",
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 1tb orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-1tb-orange/",
-    "norm": "apple iphone 17 pro max 1tb"
+    "norm": "apple iphone 17 pro max 1tb",
+    "colors": [
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 1tb blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-1tb-blue/",
-    "norm": "apple iphone 17 pro max 1tb"
+    "norm": "apple iphone 17 pro max 1tb",
+    "colors": [
+      "blue"
+    ]
   },
   {
     "name": "apple iphone 17 pro max 1tb silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro-max/apple-iphone-17-pro-max-1tb-silver/",
-    "norm": "apple iphone 17 pro max 1tb"
+    "norm": "apple iphone 17 pro max 1tb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro 256gb esim cosmic orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-256gb-esim-cosmic-orange/",
-    "norm": "apple iphone 17 pro 256gb"
+    "norm": "apple iphone 17 pro 256gb",
+    "colors": [
+      "cosmic",
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro 256gb esim deep blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-256gb-esim-deep-blue/",
-    "norm": "apple iphone 17 pro 256gb"
+    "norm": "apple iphone 17 pro 256gb",
+    "colors": [
+      "blue",
+      "deep"
+    ]
   },
   {
     "name": "apple iphone 17 pro 256gb esim silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-256gb-esim-silver/",
-    "norm": "apple iphone 17 pro 256gb"
+    "norm": "apple iphone 17 pro 256gb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro 256gb orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-256gb-orange/",
-    "norm": "apple iphone 17 pro 256gb"
+    "norm": "apple iphone 17 pro 256gb",
+    "colors": [
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro 256gb silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-256gb-silver/",
-    "norm": "apple iphone 17 pro 256gb"
+    "norm": "apple iphone 17 pro 256gb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro 256gb blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-256gb-blue/",
-    "norm": "apple iphone 17 pro 256gb"
+    "norm": "apple iphone 17 pro 256gb",
+    "colors": [
+      "blue"
+    ]
   },
   {
     "name": "apple iphone 17 pro 512gb esim cosmic orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-512gb-esim-cosmic-orange/",
-    "norm": "apple iphone 17 pro 512gb"
+    "norm": "apple iphone 17 pro 512gb",
+    "colors": [
+      "cosmic",
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro 512gb esim deep blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-512gb-esim-deep-blue/",
-    "norm": "apple iphone 17 pro 512gb"
+    "norm": "apple iphone 17 pro 512gb",
+    "colors": [
+      "blue",
+      "deep"
+    ]
   },
   {
     "name": "apple iphone 17 pro 1tb esim deep blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-1tb-esim-deep-blue/",
-    "norm": "apple iphone 17 pro 1tb"
+    "norm": "apple iphone 17 pro 1tb",
+    "colors": [
+      "blue",
+      "deep"
+    ]
   },
   {
     "name": "apple iphone 17 pro 1tb esim cosmic orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-1tb-esim-cosmic-orange/",
-    "norm": "apple iphone 17 pro 1tb"
+    "norm": "apple iphone 17 pro 1tb",
+    "colors": [
+      "cosmic",
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro 512gb orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-512gb-orange/",
-    "norm": "apple iphone 17 pro 512gb"
+    "norm": "apple iphone 17 pro 512gb",
+    "colors": [
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro 512gb esim silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-512gb-esim-silver/",
-    "norm": "apple iphone 17 pro 512gb"
+    "norm": "apple iphone 17 pro 512gb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro 512gb blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-512gb-blue/",
-    "norm": "apple iphone 17 pro 512gb"
+    "norm": "apple iphone 17 pro 512gb",
+    "colors": [
+      "blue"
+    ]
   },
   {
     "name": "apple iphone 17 pro 1tb esim silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-1tb-esim-silver/",
-    "norm": "apple iphone 17 pro 1tb"
+    "norm": "apple iphone 17 pro 1tb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro 1tb orange",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-1tb-orange/",
-    "norm": "apple iphone 17 pro 1tb"
+    "norm": "apple iphone 17 pro 1tb",
+    "colors": [
+      "orange"
+    ]
   },
   {
     "name": "apple iphone 17 pro 1tb silver",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-1tb-silver/",
-    "norm": "apple iphone 17 pro 1tb"
+    "norm": "apple iphone 17 pro 1tb",
+    "colors": [
+      "silver"
+    ]
   },
   {
     "name": "apple iphone 17 pro 1tb blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17-pro/apple-iphone-17-pro-1tb-blue/",
-    "norm": "apple iphone 17 pro 1tb"
+    "norm": "apple iphone 17 pro 1tb",
+    "colors": [
+      "blue"
+    ]
   },
   {
     "name": "apple iphone 17 256gb esim black",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-esim-black/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple iphone 17 256gb esim mist blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-esim-mist-blue/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "blue",
+      "mist"
+    ]
   },
   {
     "name": "apple iphone 17 256gb esim sage",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-esim-sage/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "sage"
+    ]
   },
   {
     "name": "apple iphone 17 256gb esim white",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-esim-white/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "white"
+    ]
   },
   {
     "name": "apple iphone 17 256gb esim lavender",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-esim-lavender/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "lavender"
+    ]
   },
   {
     "name": "apple iphone 17 256gb sky blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-sky-blue/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "blue",
+      "sky"
+    ]
   },
   {
     "name": "apple iphone 17 256gb black",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-black/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple iphone 17 256gb white",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-white/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "white"
+    ]
   },
   {
     "name": "apple iphone 17 256gb green",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-green/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "green"
+    ]
   },
   {
     "name": "apple iphone 17 256gb purple",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-256gb-purple/",
-    "norm": "apple iphone 17 256gb"
+    "norm": "apple iphone 17 256gb",
+    "colors": [
+      "purple"
+    ]
   },
   {
     "name": "apple iphone 17 512gb black",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17/apple-iphone-17-512gb-black/",
-    "norm": "apple iphone 17 512gb"
+    "norm": "apple iphone 17 512gb",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple iphone 17e 256gb esim white",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17e/apple-iphone-17e-256gb-esim-white/",
-    "norm": "apple iphone 17e 256gb"
+    "norm": "apple iphone 17e 256gb",
+    "colors": [
+      "white"
+    ]
   },
   {
     "name": "apple iphone 17e 256gb esim black",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17e/apple-iphone-17e-256gb-esim-black/",
-    "norm": "apple iphone 17e 256gb"
+    "norm": "apple iphone 17e 256gb",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple iphone 17e 256gb esim soft pink",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17e/apple-iphone-17e-256gb-esim-soft-pink/",
-    "norm": "apple iphone 17e 256gb soft"
+    "norm": "apple iphone 17e 256gb soft",
+    "colors": [
+      "pink"
+    ]
   },
   {
     "name": "apple iphone 17e 256gb white",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17e/apple-iphone-17e-256gb-white/",
-    "norm": "apple iphone 17e 256gb"
+    "norm": "apple iphone 17e 256gb",
+    "colors": [
+      "white"
+    ]
   },
   {
     "name": "apple iphone 17e 256gb black",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-17e/apple-iphone-17e-256gb-black/",
-    "norm": "apple iphone 17e 256gb"
+    "norm": "apple iphone 17e 256gb",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple iphone air 256gb light gold",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-air/apple-iphone-air-256gb-light-gold/",
-    "norm": "apple iphone air 256gb"
+    "norm": "apple iphone air 256gb",
+    "colors": [
+      "gold",
+      "light"
+    ]
   },
   {
     "name": "apple iphone air 256gb space black",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-air/apple-iphone-air-256gb-space-black/",
-    "norm": "apple iphone air 256gb"
+    "norm": "apple iphone air 256gb",
+    "colors": [
+      "space",
+      "black"
+    ]
   },
   {
     "name": "apple iphone air 256gb sky blue",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-air/apple-iphone-air-256gb-sky-blue/",
-    "norm": "apple iphone air 256gb"
+    "norm": "apple iphone air 256gb",
+    "colors": [
+      "blue",
+      "sky"
+    ]
   },
   {
     "name": "apple iphone air 256gb cloud white",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-air/apple-iphone-air-256gb-cloud-white/",
-    "norm": "apple iphone air 256gb"
+    "norm": "apple iphone air 256gb",
+    "colors": [
+      "white",
+      "cloud"
+    ]
   },
   {
     "name": "apple iphone 16 pro max 256gb esim black titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro-max/apple-iphone-16-pro-max-256gb-esim-black-titanium/",
-    "norm": "apple iphone 16 pro max 256gb"
+    "norm": "apple iphone 16 pro max 256gb",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 pro max 256gb esim natural titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro-max/apple-iphone-16-pro-max-256gb-esim-natural-titanium/",
-    "norm": "apple iphone 16 pro max 256gb"
+    "norm": "apple iphone 16 pro max 256gb",
+    "colors": [
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 pro max 256gb esim white titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro-max/apple-iphone-16-pro-max-256gb-esim-white-titanium/",
-    "norm": "apple iphone 16 pro max 256gb"
+    "norm": "apple iphone 16 pro max 256gb",
+    "colors": [
+      "white",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 pro max 256gb esim desert titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro-max/apple-iphone-16-pro-max-256gb-esim-desert-titanium/",
-    "norm": "apple iphone 16 pro max 256gb"
+    "norm": "apple iphone 16 pro max 256gb",
+    "colors": [
+      "desert",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 pro 128gb esim desert titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro/apple-iphone-16-pro-128gb-esim-desert-titanium/",
-    "norm": "apple iphone 16 pro 128gb"
+    "norm": "apple iphone 16 pro 128gb",
+    "colors": [
+      "desert",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 pro 128gb esim black titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro/apple-iphone-16-pro-128gb-esim-black-titanium/",
-    "norm": "apple iphone 16 pro 128gb"
+    "norm": "apple iphone 16 pro 128gb",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 pro 128gb esim natural titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro/apple-iphone-16-pro-128gb-esim-natural-titanium/",
-    "norm": "apple iphone 16 pro 128gb"
+    "norm": "apple iphone 16 pro 128gb",
+    "colors": [
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 pro 128gb esim white titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro/apple-iphone-16-pro-128gb-esim-white-titanium/",
-    "norm": "apple iphone 16 pro 128gb"
+    "norm": "apple iphone 16 pro 128gb",
+    "colors": [
+      "white",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 pro 256gb esim desert titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro/apple-iphone-16-pro-256gb-esim-desert-titanium/",
-    "norm": "apple iphone 16 pro 256gb"
+    "norm": "apple iphone 16 pro 256gb",
+    "colors": [
+      "desert",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 pro 256gb esim natural titanium",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16-pro/apple-iphone-16-pro-256gb-esim-natural-titanium/",
-    "norm": "apple iphone 16 pro 256gb"
+    "norm": "apple iphone 16 pro 256gb",
+    "colors": [
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple iphone 16 128gb esim black",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16/apple-iphone-16-128gb-esim-black/",
-    "norm": "apple iphone 16 128gb"
+    "norm": "apple iphone 16 128gb",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple iphone 16 128gb esim teal",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16/apple-iphone-16-128gb-esim-teal/",
-    "norm": "apple iphone 16 128gb"
+    "norm": "apple iphone 16 128gb",
+    "colors": [
+      "teal"
+    ]
   },
   {
     "name": "apple iphone 16 128gb esim pink",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16/apple-iphone-16-128gb-esim-pink/",
-    "norm": "apple iphone 16 128gb"
+    "norm": "apple iphone 16 128gb",
+    "colors": [
+      "pink"
+    ]
   },
   {
     "name": "apple iphone 16 128gb esim ultramarine",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16/apple-iphone-16-128gb-esim-ultramarine/",
-    "norm": "apple iphone 16 128gb"
+    "norm": "apple iphone 16 128gb",
+    "colors": [
+      "ultramarine"
+    ]
   },
   {
     "name": "apple iphone 16 128gb esim white",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16/apple-iphone-16-128gb-esim-white/",
-    "norm": "apple iphone 16 128gb"
+    "norm": "apple iphone 16 128gb",
+    "colors": [
+      "white"
+    ]
   },
   {
     "name": "apple iphone 16 256gb esim black",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16/apple-iphone-16-256gb-esim-black/",
-    "norm": "apple iphone 16 256gb"
+    "norm": "apple iphone 16 256gb",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple iphone 16 256gb esim pink",
     "url": "https://hi-stores.ru/catalog/iphone/iphone-16/apple-iphone-16-256gb-esim-pink/",
-    "norm": "apple iphone 16 256gb"
+    "norm": "apple iphone 16 256gb",
+    "colors": [
+      "pink"
+    ]
   },
   {
     "name": "apple imac 24 m4 10c cpu 10c gpu 2024 retina 4 5k 24gb 512gb ssd z1et000yx purple",
     "url": "https://hi-stores.ru/catalog/mac/imac/imac-24-m4-2024/apple-imac-24-m4-10c-cpu-10c-gpu-2024-retina-4-5k-24gb-512gb-ssd-z1et000yx-purple/",
-    "norm": "apple imac 24 m4 10c cpu 10c gpu 2024 retina 4 5k 24gb 512gb ssd"
+    "norm": "apple imac 24 m4 10c cpu 10c gpu 2024 retina 4 5k 24gb 512gb ssd",
+    "colors": [
+      "purple"
+    ]
   },
   {
     "name": "apple imac 24 m4 10c cpu 10c gpu 2024 retina 4 5k 32gb 1tb ssd z1k6000z7 pink",
     "url": "https://hi-stores.ru/catalog/mac/imac/imac-24-m4-2024/apple-imac-24-m4-10c-cpu-10c-gpu-2024-retina-4-5k-32gb-1tb-ssd-z1k6000z7-pink/",
-    "norm": "apple imac 24 m4 10c cpu 10c gpu 2024 retina 4 5k 32gb 1tb ssd"
+    "norm": "apple imac 24 m4 10c cpu 10c gpu 2024 retina 4 5k 32gb 1tb ssd",
+    "colors": [
+      "pink"
+    ]
   },
   {
     "name": "apple watch se 3 2025 40 mm midnight aluminum midnight sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-se-3-2025/apple-watch-se-3-2025-40-mm-midnight-aluminum-midnight-sport-band-m-l/",
-    "norm": "apple watch se 3 2025 40 mm aluminum sport band m l"
+    "norm": "apple watch se 3 2025 40 mm aluminum sport band m l",
+    "colors": [
+      "midnight"
+    ]
   },
   {
     "name": "apple watch se 3 2025 40 mm starlight aluminum starlight sport band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-se-3-2025/apple-watch-se-3-2025-40-mm-starlight-aluminum-starlight-sport-band/",
-    "norm": "apple watch se 3 2025 40 mm aluminum sport band"
+    "norm": "apple watch se 3 2025 40 mm aluminum sport band",
+    "colors": [
+      "starlight"
+    ]
   },
   {
     "name": "apple watch se 3 2025 44 mm midnight aluminum midnight sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-se-3-2025/apple-watch-se-3-2025-44-mm-midnight-aluminum-midnight-sport-band-m-l/",
-    "norm": "apple watch se 3 2025 44 mm aluminum sport band m l"
+    "norm": "apple watch se 3 2025 44 mm aluminum sport band m l",
+    "colors": [
+      "midnight"
+    ]
   },
   {
     "name": "apple watch se 3 2025 44 mm midnight aluminum midnight sport band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-se-3-2025/apple-watch-se-3-2025-44-mm-midnight-aluminum-midnight-sport-band/",
-    "norm": "apple watch se 3 2025 44 mm aluminum sport band"
+    "norm": "apple watch se 3 2025 44 mm aluminum sport band",
+    "colors": [
+      "midnight"
+    ]
   },
   {
     "name": "apple watch se 3 2025 40 mm starlight aluminum starlight sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-se-3-2025/apple-watch-se-3-2025-40-mm-starlight-aluminum-starlight-sport-band-m-l/",
-    "norm": "apple watch se 3 2025 40 mm aluminum sport band m l"
+    "norm": "apple watch se 3 2025 40 mm aluminum sport band m l",
+    "colors": [
+      "starlight"
+    ]
   },
   {
     "name": "apple watch se 3 2025 44 mm starlight aluminum starlight sport band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-se-3-2025/apple-watch-se-3-2025-44-mm-starlight-aluminum-starlight-sport-band/",
-    "norm": "apple watch se 3 2025 44 mm aluminum sport band"
+    "norm": "apple watch se 3 2025 44 mm aluminum sport band",
+    "colors": [
+      "starlight"
+    ]
   },
   {
     "name": "apple watch se 3 2025 44 mm starlight aluminum starlight sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-se-3-2025/apple-watch-se-3-2025-44-mm-starlight-aluminum-starlight-sport-band-m-l/",
-    "norm": "apple watch se 3 2025 44 mm aluminum sport band m l"
+    "norm": "apple watch se 3 2025 44 mm aluminum sport band m l",
+    "colors": [
+      "starlight"
+    ]
   },
   {
     "name": "apple watch series 11 42 mm space gray aluminum black sport band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-42-mm-space-gray-aluminum-black-sport-band/",
-    "norm": "apple watch series 11 42 mm gray aluminum sport band"
+    "norm": "apple watch series 11 42 mm gray aluminum sport band",
+    "colors": [
+      "space",
+      "black"
+    ]
   },
   {
     "name": "apple watch series 11 42 mm jet black aluminum black sport band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-42-mm-jet-black-aluminum-black-sport-band/",
-    "norm": "apple watch series 11 42 mm jet aluminum sport band"
+    "norm": "apple watch series 11 42 mm jet aluminum sport band",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple watch series 11 42 mm rose gold aluminum light blush sport band s m",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-42-mm-rose-gold-aluminum-light-blush-sport-band-s-m/",
-    "norm": "apple watch series 11 42 mm rose aluminum blush sport band s m"
+    "norm": "apple watch series 11 42 mm rose aluminum blush sport band s m",
+    "colors": [
+      "gold",
+      "light"
+    ]
   },
   {
     "name": "apple watch series 11 42 mm space gray aluminum black sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-42-mm-space-gray-aluminum-black-sport-band-m-l/",
-    "norm": "apple watch series 11 42 mm gray aluminum sport band m l"
+    "norm": "apple watch series 11 42 mm gray aluminum sport band m l",
+    "colors": [
+      "space",
+      "black"
+    ]
   },
   {
     "name": "apple watch series 11 42 mm jet black aluminum black sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-42-mm-jet-black-aluminum-black-sport-band-m-l/",
-    "norm": "apple watch series 11 42 mm jet aluminum sport band m l"
+    "norm": "apple watch series 11 42 mm jet aluminum sport band m l",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple watch series 11 42 mm silver aluminum purple fog sport band s m",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-42-mm-silver-aluminum-purple-fog-sport-band-s-m/",
-    "norm": "apple watch series 11 42 mm aluminum fog sport band s m"
+    "norm": "apple watch series 11 42 mm aluminum fog sport band s m",
+    "colors": [
+      "silver",
+      "purple"
+    ]
   },
   {
     "name": "apple watch series 11 42 mm rose gold aluminum light blush sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-42-mm-rose-gold-aluminum-light-blush-sport-band-m-l/",
-    "norm": "apple watch series 11 42 mm rose aluminum blush sport band m l"
+    "norm": "apple watch series 11 42 mm rose aluminum blush sport band m l",
+    "colors": [
+      "gold",
+      "light"
+    ]
   },
   {
     "name": "apple watch series 11 46 mm space gray aluminum black sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-46-mm-space-gray-aluminum-black-sport-band-m-l/",
-    "norm": "apple watch series 11 46 mm gray aluminum sport band m l"
+    "norm": "apple watch series 11 46 mm gray aluminum sport band m l",
+    "colors": [
+      "space",
+      "black"
+    ]
   },
   {
     "name": "apple watch series 11 42 mm silver aluminum purple fog sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-42-mm-silver-aluminum-purple-fog-sport-band-m-l/",
-    "norm": "apple watch series 11 42 mm aluminum fog sport band m l"
+    "norm": "apple watch series 11 42 mm aluminum fog sport band m l",
+    "colors": [
+      "silver",
+      "purple"
+    ]
   },
   {
     "name": "apple watch series 11 46 mm rose gold aluminum light blush sport band s m",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-46-mm-rose-gold-aluminum-light-blush-sport-band-s-m/",
-    "norm": "apple watch series 11 46 mm rose aluminum blush sport band s m"
+    "norm": "apple watch series 11 46 mm rose aluminum blush sport band s m",
+    "colors": [
+      "gold",
+      "light"
+    ]
   },
   {
     "name": "apple watch series 11 46 mm silver aluminum purple fog sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-46-mm-silver-aluminum-purple-fog-sport-band-m-l/",
-    "norm": "apple watch series 11 46 mm aluminum fog sport band m l"
+    "norm": "apple watch series 11 46 mm aluminum fog sport band m l",
+    "colors": [
+      "silver",
+      "purple"
+    ]
   },
   {
     "name": "apple watch series 11 46 mm rose gold aluminum light blush sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-46-mm-rose-gold-aluminum-light-blush-sport-band-m-l/",
-    "norm": "apple watch series 11 46 mm rose aluminum blush sport band m l"
+    "norm": "apple watch series 11 46 mm rose aluminum blush sport band m l",
+    "colors": [
+      "gold",
+      "light"
+    ]
   },
   {
     "name": "apple watch series 11 46 mm silver aluminum purple fog sport band s m",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-46-mm-silver-aluminum-purple-fog-sport-band-s-m/",
-    "norm": "apple watch series 11 46 mm aluminum fog sport band s m"
+    "norm": "apple watch series 11 46 mm aluminum fog sport band s m",
+    "colors": [
+      "silver",
+      "purple"
+    ]
   },
   {
     "name": "apple watch series 11 46 mm jet black aluminum black sport band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-46-mm-jet-black-aluminum-black-sport-band/",
-    "norm": "apple watch series 11 46 mm jet aluminum sport band"
+    "norm": "apple watch series 11 46 mm jet aluminum sport band",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium black ocean band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-black-ocean-band/",
-    "norm": "apple watch ultra 3 2025 49 mm ocean band"
+    "norm": "apple watch ultra 3 2025 49 mm ocean band",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium black titanium milanese loop medium",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-black-titanium-milanese-loop-medium/",
-    "norm": "apple watch ultra 3 2025 49 mm milanese loop medium"
+    "norm": "apple watch ultra 3 2025 49 mm milanese loop medium",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch se 3 2025 40 mm midnight aluminum midnight sport band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-se-3-2025/apple-watch-se-3-2025-40-mm-midnight-aluminum-midnight-sport-band/",
-    "norm": "apple watch se 3 2025 40 mm aluminum sport band"
+    "norm": "apple watch se 3 2025 40 mm aluminum sport band",
+    "colors": [
+      "midnight"
+    ]
   },
   {
     "name": "apple watch series 11 46 mm space gray aluminum black sport band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-46-mm-space-gray-aluminum-black-sport-band/",
-    "norm": "apple watch series 11 46 mm gray aluminum sport band"
+    "norm": "apple watch series 11 46 mm gray aluminum sport band",
+    "colors": [
+      "space",
+      "black"
+    ]
   },
   {
     "name": "apple watch series 11 46 mm jet black aluminum black sport band m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-46-mm-jet-black-aluminum-black-sport-band-m-l/",
-    "norm": "apple watch series 11 46 mm jet aluminum sport band m l"
+    "norm": "apple watch series 11 46 mm jet aluminum sport band m l",
+    "colors": [
+      "black"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium black charcoal trail loop m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-black-charcoal-trail-loop-m-l/",
-    "norm": "apple watch ultra 3 2025 49 mm charcoal trail loop m l"
+    "norm": "apple watch ultra 3 2025 49 mm charcoal trail loop m l",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium black alpine loop medium",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-black-alpine-loop-medium/",
-    "norm": "apple watch ultra 3 2025 49 mm alpine loop medium"
+    "norm": "apple watch ultra 3 2025 49 mm alpine loop medium",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium black alpine loop large",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-black-alpine-loop-large/",
-    "norm": "apple watch ultra 3 2025 49 mm alpine loop large"
+    "norm": "apple watch ultra 3 2025 49 mm alpine loop large",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium black alpine loop small",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-black-alpine-loop-small/",
-    "norm": "apple watch ultra 3 2025 49 mm alpine loop small"
+    "norm": "apple watch ultra 3 2025 49 mm alpine loop small",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium blue bright blue trail loop m l",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-blue-bright-blue-trail-loop-m-l/",
-    "norm": "apple watch ultra 3 2025 49 mm bright trail loop m l"
+    "norm": "apple watch ultra 3 2025 49 mm bright trail loop m l",
+    "colors": [
+      "blue",
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium blue bright blue trail loop s m",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-blue-bright-blue-trail-loop-s-m/",
-    "norm": "apple watch ultra 3 2025 49 mm bright trail loop s m"
+    "norm": "apple watch ultra 3 2025 49 mm bright trail loop s m",
+    "colors": [
+      "blue",
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium black charcoal trail loop s m",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-black-charcoal-trail-loop-s-m/",
-    "norm": "apple watch ultra 3 2025 49 mm charcoal trail loop s m"
+    "norm": "apple watch ultra 3 2025 49 mm charcoal trail loop s m",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch series 11 42 mm korpus iz titana tsveta slate remeshok milanese loop tsveta slate",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-42-mm-korpus-iz-titana-tsveta-slate-remeshok-milanese-loop-tsveta-slate/",
-    "norm": "apple watch series 11 42 mm korpus iz titana tsveta remeshok milanese loop tsveta"
+    "norm": "apple watch series 11 42 mm korpus iz titana tsveta remeshok milanese loop tsveta",
+    "colors": [
+      "slate"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium anchor blue ocean band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-anchor-blue-ocean-band/",
-    "norm": "apple watch ultra 3 2025 49 mm anchor ocean band"
+    "norm": "apple watch ultra 3 2025 49 mm anchor ocean band",
+    "colors": [
+      "blue",
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium light blue alpine loop large",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-light-blue-alpine-loop-large/",
-    "norm": "apple watch ultra 3 2025 49 mm alpine loop large"
+    "norm": "apple watch ultra 3 2025 49 mm alpine loop large",
+    "colors": [
+      "light",
+      "blue",
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium light blue alpine loop medium",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-light-blue-alpine-loop-medium/",
-    "norm": "apple watch ultra 3 2025 49 mm alpine loop medium"
+    "norm": "apple watch ultra 3 2025 49 mm alpine loop medium",
+    "colors": [
+      "light",
+      "blue",
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium light blue alpine loop medium",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-light-blue-alpine-loop-medium/",
-    "norm": "apple watch ultra 3 2025 49 mm alpine loop medium"
+    "norm": "apple watch ultra 3 2025 49 mm alpine loop medium",
+    "colors": [
+      "light",
+      "blue",
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium light blue alpine loop small",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-light-blue-alpine-loop-small/",
-    "norm": "apple watch ultra 3 2025 49 mm alpine loop small"
+    "norm": "apple watch ultra 3 2025 49 mm alpine loop small",
+    "colors": [
+      "light",
+      "blue",
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium black ocean band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-black-ocean-band/",
-    "norm": "apple watch ultra 3 2025 49 mm ocean band"
+    "norm": "apple watch ultra 3 2025 49 mm ocean band",
+    "colors": [
+      "black",
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch series 11 46 mm korpus iz titana tsveta natural remeshok milanese loop tsveta natural",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-series-11/apple-watch-series-11-46-mm-korpus-iz-titana-tsveta-natural-remeshok-milanese-loop-tsveta-natural/",
-    "norm": "apple watch series 11 46 mm korpus iz titana tsveta remeshok milanese loop tsveta"
+    "norm": "apple watch series 11 46 mm korpus iz titana tsveta remeshok milanese loop tsveta",
+    "colors": [
+      "natural"
+    ]
   },
   {
     "name": "apple watch ultra 2 2024 49 mm korpus iz titana tsveta natural remeshok titanium milanese loop razmera s tsveta natural",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-2/apple-watch-ultra-2-2024-49-mm-korpus-iz-titana-tsveta-natural-remeshok-titanium-milanese-loop-razmera-s-tsveta-natural/",
-    "norm": "apple watch ultra 2 2024 49 mm korpus iz titana tsveta remeshok milanese loop razmera s tsveta"
+    "norm": "apple watch ultra 2 2024 49 mm korpus iz titana tsveta remeshok milanese loop razmera s tsveta",
+    "colors": [
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium black titanium milanese loop large",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-black-titanium-milanese-loop-large/",
-    "norm": "apple watch ultra 3 2025 49 mm milanese loop large"
+    "norm": "apple watch ultra 3 2025 49 mm milanese loop large",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium natural titanium milanese loop large",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-natural-titanium-milanese-loop-large/",
-    "norm": "apple watch ultra 3 2025 49 mm milanese loop large"
+    "norm": "apple watch ultra 3 2025 49 mm milanese loop large",
+    "colors": [
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium natural titanium milanese loop medium",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-natural-titanium-milanese-loop-medium/",
-    "norm": "apple watch ultra 3 2025 49 mm milanese loop medium"
+    "norm": "apple watch ultra 3 2025 49 mm milanese loop medium",
+    "colors": [
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium neon green ocean band",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-neon-green-ocean-band/",
-    "norm": "apple watch ultra 3 2025 49 mm neon ocean band"
+    "norm": "apple watch ultra 3 2025 49 mm neon ocean band",
+    "colors": [
+      "green",
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm natural titanium natural titanium milanese loop small",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-natural-titanium-natural-titanium-milanese-loop-small/",
-    "norm": "apple watch ultra 3 2025 49 mm milanese loop small"
+    "norm": "apple watch ultra 3 2025 49 mm milanese loop small",
+    "colors": [
+      "natural",
+      "titanium"
+    ]
   },
   {
     "name": "apple watch ultra 3 2025 49 mm black titanium black titanium milanese loop small",
     "url": "https://hi-stores.ru/catalog/apple-watch/watch-ultra-3/apple-watch-ultra-3-2025-49-mm-black-titanium-black-titanium-milanese-loop-small/",
-    "norm": "apple watch ultra 3 2025 49 mm milanese loop small"
+    "norm": "apple watch ultra 3 2025 49 mm milanese loop small",
+    "colors": [
+      "black",
+      "titanium"
+    ]
   }
 ]
