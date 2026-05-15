@@ -1,0 +1,682 @@
+[
+  {
+    "name": "iPhone 17 Pro Max",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/phone17promax/",
+    "norm": "iphone 17 pro max"
+  },
+  {
+    "name": "iPhone 17 Pro",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/17pro/",
+    "norm": "iphone 17 pro"
+  },
+  {
+    "name": "iPhone 17",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/appleiphone17/",
+    "norm": "iphone 17"
+  },
+  {
+    "name": "iPhone Air",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/appleiphoneair/",
+    "norm": "iphone air"
+  },
+  {
+    "name": "iPhone 16 Pro Max",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/16promax/",
+    "norm": "iphone 16 pro max"
+  },
+  {
+    "name": "iPhone 16 Pro",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/16pro/",
+    "norm": "iphone 16 pro"
+  },
+  {
+    "name": "iPhone 16 Plus",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/16plus/",
+    "norm": "iphone 16 plus"
+  },
+  {
+    "name": "iPhone 16",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/16/",
+    "norm": "iphone 16"
+  },
+  {
+    "name": "iPhone 16e",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/iphone16e/",
+    "norm": "iphone 16e"
+  },
+  {
+    "name": "iPhone 15 Pro Max",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/15promax/",
+    "norm": "iphone 15 pro max"
+  },
+  {
+    "name": "iPhone 15 Pro",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/15pro/",
+    "norm": "iphone 15 pro"
+  },
+  {
+    "name": "iPhone 15 Plus",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/15plus/",
+    "norm": "iphone 15 plus"
+  },
+  {
+    "name": "iPhone 15",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/15/",
+    "norm": "iphone 15"
+  },
+  {
+    "name": "iPhone 14 Pro",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/14pro/",
+    "norm": "iphone 14 pro"
+  },
+  {
+    "name": "iPhone 14",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/14/",
+    "norm": "iphone 14"
+  },
+  {
+    "name": "iPhone SE 2022",
+    "url": "https://1click.ru/catalogue/phones/apple-iphone/se2022/",
+    "norm": "iphone se 2022"
+  },
+  {
+    "name": "Galaxy S26 Ultra",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/galaxy-s26-ultra/",
+    "norm": "galaxy s26 ultra"
+  },
+  {
+    "name": "Galaxy S26+",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/s26-1/",
+    "norm": "galaxy s26"
+  },
+  {
+    "name": "Galaxy S26",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/s26/",
+    "norm": "galaxy s26"
+  },
+  {
+    "name": "Galaxy Z Fold7",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/zfold-7/",
+    "norm": "galaxy z fold7"
+  },
+  {
+    "name": "Galaxy Z Flip7 FE",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/galaxy-zflip-7-fe/",
+    "norm": "galaxy z flip7 fe"
+  },
+  {
+    "name": "Galaxy S25 Ultra",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/galaxy-s25-ultra/",
+    "norm": "galaxy s25 ultra"
+  },
+  {
+    "name": "Galaxy S25+",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/s25plus/",
+    "norm": "galaxy s25"
+  },
+  {
+    "name": "Galaxy S25",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/galaxy-s25/",
+    "norm": "galaxy s25"
+  },
+  {
+    "name": "Galaxy S25 FE",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/samsunggalaxys25fe/",
+    "norm": "galaxy s25 fe"
+  },
+  {
+    "name": "Galaxy S24 Ultra",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/s24ultra5g/",
+    "norm": "galaxy s24 ultra"
+  },
+  {
+    "name": "Galaxy S24+",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/s245g-1/",
+    "norm": "galaxy s24"
+  },
+  {
+    "name": "Galaxy S24",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/s245g/",
+    "norm": "galaxy s24"
+  },
+  {
+    "name": "Galaxy S24 FE",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/s24-fe/",
+    "norm": "galaxy s24 fe"
+  },
+  {
+    "name": "Galaxy A56",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/samsunggalaxya56/",
+    "norm": "galaxy a56"
+  },
+  {
+    "name": "Galaxy A55",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/a55/",
+    "norm": "galaxy a55"
+  },
+  {
+    "name": "Galaxy XCover 7",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/x-cover-7/",
+    "norm": "galaxy xcover 7"
+  },
+  {
+    "name": "Galaxy A36",
+    "url": "https://1click.ru/catalogue/phones/samsung-galaxy/galaxy-a36/",
+    "norm": "galaxy a36"
+  },
+  {
+    "name": "17 Ultra",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/17-ultra/",
+    "norm": "17 ultra"
+  },
+  {
+    "name": "15 Ultra",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/xiaomi15ultra/",
+    "norm": "15 ultra"
+  },
+  {
+    "name": "15T Pro",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/xiaomi15tpro/",
+    "norm": "15t pro"
+  },
+  {
+    "name": "15T",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/xiaomi15t/",
+    "norm": "15t"
+  },
+  {
+    "name": "Redmi Note 15 Pro+",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/note15pro-plus/",
+    "norm": "redmi note 15 pro"
+  },
+  {
+    "name": "Redmi Note 15 Pro",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/note15pro/",
+    "norm": "redmi note 15 pro"
+  },
+  {
+    "name": "Redmi Note 15",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/redmi-note15/",
+    "norm": "redmi note 15"
+  },
+  {
+    "name": "14 Ultra",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/telefonytelefonyxiaomixiaomi14ultra/",
+    "norm": "14 ultra"
+  },
+  {
+    "name": "14T Pro",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/14t-pro/",
+    "norm": "14t pro"
+  },
+  {
+    "name": "14T",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/xiaomi14t/",
+    "norm": "14t"
+  },
+  {
+    "name": "Redmi Note 14 Pro+",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/note14pro-plus/",
+    "norm": "redmi note 14 pro"
+  },
+  {
+    "name": "Redmi Note 14 Pro",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/note14pro/",
+    "norm": "redmi note 14 pro"
+  },
+  {
+    "name": "Redmi Note 14S",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/xiaomiredminote14s/",
+    "norm": "redmi note 14s"
+  },
+  {
+    "name": "13T Pro",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/telefonytelefonyxiaomixiaomi13tpro/",
+    "norm": "13t pro"
+  },
+  {
+    "name": "13T",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/telefonytelefonyxiaomixiaomi13t/",
+    "norm": "13t"
+  },
+  {
+    "name": "12 Pro",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/telefonytelefonyxiaomixiaomi12pro/",
+    "norm": "12 pro"
+  },
+  {
+    "name": "Poco X7 Pro",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/pocox7pro/",
+    "norm": "poco x7 pro"
+  },
+  {
+    "name": "Poco X6 Pro",
+    "url": "https://1click.ru/catalogue/phones/xiaomi/telefonytelefonyxiaomixiaomipocox6pro/",
+    "norm": "poco x6 pro"
+  },
+  {
+    "name": "Nord 6",
+    "url": "https://1click.ru/catalogue/phones/oneplus/nord6/",
+    "norm": "nord 6"
+  },
+  {
+    "name": "15R",
+    "url": "https://1click.ru/catalogue/phones/oneplus/oneplus15r/",
+    "norm": "15r"
+  },
+  {
+    "name": "Open",
+    "url": "https://1click.ru/catalogue/phones/oneplus/open/",
+    "norm": "open"
+  },
+  {
+    "name": "13R",
+    "url": "https://1click.ru/catalogue/phones/oneplus/oneplus13r/",
+    "norm": "13r"
+  },
+  {
+    "name": "13s",
+    "url": "https://1click.ru/catalogue/phones/oneplus/13-s/",
+    "norm": "13s"
+  },
+  {
+    "name": "12R",
+    "url": "https://1click.ru/catalogue/phones/oneplus/12-r/",
+    "norm": "12r"
+  },
+  {
+    "name": "Nord 5",
+    "url": "https://1click.ru/catalogue/phones/oneplus/nord5/",
+    "norm": "nord 5"
+  },
+  {
+    "name": "Nord 4",
+    "url": "https://1click.ru/catalogue/phones/oneplus/nord4/",
+    "norm": "nord 4"
+  },
+  {
+    "name": "Nord CE 5",
+    "url": "https://1click.ru/catalogue/phones/oneplus/oneplusnordce5/",
+    "norm": "nord ce 5"
+  },
+  {
+    "name": "Nord CE 4 Lite",
+    "url": "https://1click.ru/catalogue/phones/oneplus/nord-ce-4-lite/",
+    "norm": "nord ce 4 lite"
+  },
+  {
+    "name": "Pixel 10a",
+    "url": "https://1click.ru/catalogue/phones/google/pixel-10a/",
+    "norm": "pixel 10a"
+  },
+  {
+    "name": "Pixel 9 Pro XL",
+    "url": "https://1click.ru/catalogue/phones/google/9-pro-xl/",
+    "norm": "pixel 9 pro xl"
+  },
+  {
+    "name": "Pixel 9",
+    "url": "https://1click.ru/catalogue/phones/google/9/",
+    "norm": "pixel 9"
+  },
+  {
+    "name": "Pixel 9a",
+    "url": "https://1click.ru/catalogue/phones/google/pixel9a/",
+    "norm": "pixel 9a"
+  },
+  {
+    "name": "Pixel 8 Pro",
+    "url": "https://1click.ru/catalogue/phones/google/8-pro/",
+    "norm": "pixel 8 pro"
+  },
+  {
+    "name": "Pixel 8",
+    "url": "https://1click.ru/catalogue/phones/google/8/",
+    "norm": "pixel 8"
+  },
+  {
+    "name": "Pixel 8a",
+    "url": "https://1click.ru/catalogue/phones/google/8-a/",
+    "norm": "pixel 8a"
+  },
+  {
+    "name": "Смартфоны Google Pixel 7 Pro",
+    "url": "https://1click.ru/catalogue/phones/google/7-pro/",
+    "norm": "смартфоны google pixel 7 pro"
+  },
+  {
+    "name": "Смартфоны Google Pixel 7",
+    "url": "https://1click.ru/catalogue/phones/google/pixel-7/",
+    "norm": "смартфоны google pixel 7"
+  },
+  {
+    "name": "Xperia 1 VII",
+    "url": "https://1click.ru/catalogue/phones/sony/xperia1vii/",
+    "norm": "xperia 1 vii"
+  },
+  {
+    "name": "Xperia 1 VI",
+    "url": "https://1click.ru/catalogue/phones/sony/xperia-1vi/",
+    "norm": "xperia 1 vi"
+  },
+  {
+    "name": "Xperia 1 IV",
+    "url": "https://1click.ru/catalogue/phones/sony/xperia-1iv/",
+    "norm": "xperia 1 iv"
+  },
+  {
+    "name": "Xperia 10 VI",
+    "url": "https://1click.ru/catalogue/phones/sony/xperia-10vi-1/",
+    "norm": "xperia 10 vi"
+  },
+  {
+    "name": "Xperia 10 VII",
+    "url": "https://1click.ru/catalogue/phones/sony/sonyxperia10vii/",
+    "norm": "xperia 10 vii"
+  },
+  {
+    "name": "600 Pro",
+    "url": "https://1click.ru/catalogue/phones/honor/honor-600pro/",
+    "norm": "600 pro"
+  },
+  {
+    "name": "600",
+    "url": "https://1click.ru/catalogue/phones/honor/honor-600/",
+    "norm": "600"
+  },
+  {
+    "name": "Magic V5",
+    "url": "https://1click.ru/catalogue/phones/honor/honormagicv5/",
+    "norm": "magic v5"
+  },
+  {
+    "name": "Magic 8 Pro",
+    "url": "https://1click.ru/catalogue/phones/honor/honor-magic-8pro/",
+    "norm": "magic 8 pro"
+  },
+  {
+    "name": "Magic V3",
+    "url": "https://1click.ru/catalogue/phones/honor/magicv3/",
+    "norm": "magic v3"
+  },
+  {
+    "name": "Magic V2 RSR Porsche Design",
+    "url": "https://1click.ru/catalogue/phones/honor/magic-v2-rsr-porschedesign/",
+    "norm": "magic v2 rsr porsche design"
+  },
+  {
+    "name": "Magic V2",
+    "url": "https://1click.ru/catalogue/phones/honor/honormagic-v2/",
+    "norm": "magic v2"
+  },
+  {
+    "name": "Magic 6 RSR Porsche Design",
+    "url": "https://1click.ru/catalogue/phones/honor/6-rsr-porschedesign/",
+    "norm": "magic 6 rsr porsche design"
+  },
+  {
+    "name": "Magic 7 Pro",
+    "url": "https://1click.ru/catalogue/phones/honor/magic7pro/",
+    "norm": "magic 7 pro"
+  },
+  {
+    "name": "Magic 6 Pro",
+    "url": "https://1click.ru/catalogue/phones/honor/magic6pro/",
+    "norm": "magic 6 pro"
+  },
+  {
+    "name": "400 Pro",
+    "url": "https://1click.ru/catalogue/phones/honor/honor-400-pro/",
+    "norm": "400 pro"
+  },
+  {
+    "name": "400",
+    "url": "https://1click.ru/catalogue/phones/honor/honorhonor400/",
+    "norm": "400"
+  },
+  {
+    "name": "200 Pro",
+    "url": "https://1click.ru/catalogue/phones/honor/honor200pro/",
+    "norm": "200 pro"
+  },
+  {
+    "name": "X9c",
+    "url": "https://1click.ru/catalogue/phones/honor/honor-x9c/",
+    "norm": "x9c"
+  },
+  {
+    "name": "Смартфоны Asus ROG Phone 9 Pro",
+    "url": "https://1click.ru/catalogue/phones/asus/rogphone9pro/",
+    "norm": "смартфоны asus rog phone 9 pro"
+  },
+  {
+    "name": "Reno 10 Pro+",
+    "url": "https://1click.ru/catalogue/phones/oppo/reno10pro-plus/",
+    "norm": "reno 10 pro"
+  },
+  {
+    "name": "Phone (4a) Pro",
+    "url": "https://1click.ru/catalogue/phones/nothing-phone/4a-pro/",
+    "norm": "phone 4a pro"
+  },
+  {
+    "name": "Phone (4a)",
+    "url": "https://1click.ru/catalogue/phones/nothing-phone/4a/",
+    "norm": "phone 4a"
+  },
+  {
+    "name": "Phone (3)",
+    "url": "https://1click.ru/catalogue/phones/nothing-phone/nothingphone3/",
+    "norm": "phone 3"
+  },
+  {
+    "name": "Phone (3a) Pro",
+    "url": "https://1click.ru/catalogue/phones/nothing-phone/nothingphone3apro/",
+    "norm": "phone 3a pro"
+  },
+  {
+    "name": "Phone (3a)",
+    "url": "https://1click.ru/catalogue/phones/nothing-phone/nothingphone3a/",
+    "norm": "phone 3a"
+  },
+  {
+    "name": "CMF Phone 2 Pro",
+    "url": "https://1click.ru/catalogue/phones/nothing-phone/phone2pro/",
+    "norm": "cmf phone 2 pro"
+  },
+  {
+    "name": "Phone (2a) Plus",
+    "url": "https://1click.ru/catalogue/phones/nothing-phone/2a-plus/",
+    "norm": "phone 2a plus"
+  },
+  {
+    "name": "Phone (2a)",
+    "url": "https://1click.ru/catalogue/phones/nothing-phone/2a/",
+    "norm": "phone 2a"
+  },
+  {
+    "name": "iPad Air 13 (2026) M4",
+    "url": "https://1click.ru/catalogue/tablets/apple/air-13-2026-m4/",
+    "norm": "ipad air 13 2026 m4"
+  },
+  {
+    "name": "Apple iPad Pro 13 (2025) M5",
+    "url": "https://1click.ru/catalogue/tablets/apple/pro-13-2025-m5/",
+    "norm": "apple ipad pro 13 2025 m5"
+  },
+  {
+    "name": "iPad Pro 11 (2025) M5",
+    "url": "https://1click.ru/catalogue/tablets/apple/pro-11-2025-m5/",
+    "norm": "ipad pro 11 2025 m5"
+  },
+  {
+    "name": "iPad Air 13 (2025) M3",
+    "url": "https://1click.ru/catalogue/tablets/apple/appleipadair132025m3/",
+    "norm": "ipad air 13 2025 m3"
+  },
+  {
+    "name": "iPad Air 11 (2025) M3",
+    "url": "https://1click.ru/catalogue/tablets/apple/appleappleipadair112025m3/",
+    "norm": "ipad air 11 2025 m3"
+  },
+  {
+    "name": "iPad 11 A16 (2025)",
+    "url": "https://1click.ru/catalogue/tablets/apple/appleipad112025/",
+    "norm": "ipad 11 a16 2025"
+  },
+  {
+    "name": "iPad Pro 13 (2024) M4",
+    "url": "https://1click.ru/catalogue/tablets/apple/pro-13-2024-m4/",
+    "norm": "ipad pro 13 2024 m4"
+  },
+  {
+    "name": "iPad Pro 11 (2024) M4",
+    "url": "https://1click.ru/catalogue/tablets/apple/pro-11-2024-m4/",
+    "norm": "ipad pro 11 2024 m4"
+  },
+  {
+    "name": "iPad Air 13 (2024) M2",
+    "url": "https://1click.ru/catalogue/tablets/apple/air-13-2024-m2/",
+    "norm": "ipad air 13 2024 m2"
+  },
+  {
+    "name": "iPad Air 11 (2024) M2",
+    "url": "https://1click.ru/catalogue/tablets/apple/air-11-2024-m2/",
+    "norm": "ipad air 11 2024 m2"
+  },
+  {
+    "name": "iPad mini (2024)",
+    "url": "https://1click.ru/catalogue/tablets/apple/ipad-mini-2024/",
+    "norm": "ipad mini 2024"
+  },
+  {
+    "name": "iPad Pro 12.9 (2022)",
+    "url": "https://1click.ru/catalogue/tablets/apple/pro-12-9-2022/",
+    "norm": "ipad pro 12.9 2022"
+  },
+  {
+    "name": "iPad Pro 11 (2022)",
+    "url": "https://1click.ru/catalogue/tablets/apple/pro-11-2022/",
+    "norm": "ipad pro 11 2022"
+  },
+  {
+    "name": "iPad Air (2022)",
+    "url": "https://1click.ru/catalogue/tablets/apple/air-2022/",
+    "norm": "ipad air 2022"
+  },
+  {
+    "name": "iPad 10.9 (2022)",
+    "url": "https://1click.ru/catalogue/tablets/apple/10-9-2022/",
+    "norm": "ipad 10.9 2022"
+  },
+  {
+    "name": "iPad mini (2021)",
+    "url": "https://1click.ru/catalogue/tablets/apple/mini-2021/",
+    "norm": "ipad mini 2021"
+  },
+  {
+    "name": "Galaxy Tab S11 Ultra",
+    "url": "https://1click.ru/catalogue/tablets/samsung/tab-s-11ultra/",
+    "norm": "galaxy tab s11 ultra"
+  },
+  {
+    "name": "Galaxy Tab S11",
+    "url": "https://1click.ru/catalogue/tablets/samsung/tab-s11/",
+    "norm": "galaxy tab s11"
+  },
+  {
+    "name": "Galaxy Tab S10 Ultra",
+    "url": "https://1click.ru/catalogue/tablets/samsung/s10-ultra/",
+    "norm": "galaxy tab s10 ultra"
+  },
+  {
+    "name": "Galaxy Tab S10+",
+    "url": "https://1click.ru/catalogue/tablets/samsung/s10-plus/",
+    "norm": "galaxy tab s10"
+  },
+  {
+    "name": "Galaxy Tab S10 FE+",
+    "url": "https://1click.ru/catalogue/tablets/samsung/tab-s10fe-plus/",
+    "norm": "galaxy tab s10 fe"
+  },
+  {
+    "name": "Galaxy Tab S10 FE",
+    "url": "https://1click.ru/catalogue/tablets/samsung/tab-s10fe/",
+    "norm": "galaxy tab s10 fe"
+  },
+  {
+    "name": "Galaxy Tab S10 Lite",
+    "url": "https://1click.ru/catalogue/tablets/samsung/tab-s10lite/",
+    "norm": "galaxy tab s10 lite"
+  },
+  {
+    "name": "Galaxy Tab S9",
+    "url": "https://1click.ru/catalogue/tablets/samsung/tab-s9/",
+    "norm": "galaxy tab s9"
+  },
+  {
+    "name": "Galaxy Tab S6 Lite (2024)",
+    "url": "https://1click.ru/catalogue/tablets/samsung/tab-s6-lite-2024/",
+    "norm": "galaxy tab s6 lite 2024"
+  },
+  {
+    "name": "Redmi Pad 2 Pro",
+    "url": "https://1click.ru/catalogue/tablets/xiaomi/redmipad2pro/",
+    "norm": "redmi pad 2 pro"
+  },
+  {
+    "name": "Mi Pad 7 Pro (Global Version)",
+    "url": "https://1click.ru/catalogue/tablets/xiaomi/7proglobalversion/",
+    "norm": "mi pad 7 pro global version"
+  },
+  {
+    "name": "Mi Pad 7 (Global Version)",
+    "url": "https://1click.ru/catalogue/tablets/xiaomi/mipad7globalversion/",
+    "norm": "mi pad 7 global version"
+  },
+  {
+    "name": "Pad 2",
+    "url": "https://1click.ru/catalogue/tablets/oneplus/pad2/",
+    "norm": "pad 2"
+  },
+  {
+    "name": "Apple Watch SE 3 (2025) GPS",
+    "url": "https://1click.ru/catalogue/aksessuary-chasy/umnye-chasy-apple/applewatchse32025gps/",
+    "norm": "apple watch se 3 2025 gps"
+  },
+  {
+    "name": "Apple Watch SE (2024) GPS",
+    "url": "https://1click.ru/catalogue/aksessuary-chasy/umnye-chasy-apple/watchse2024gps/",
+    "norm": "apple watch se 2024 gps"
+  },
+  {
+    "name": "Apple Watch SE (2024) GPS+Cellular",
+    "url": "https://1click.ru/catalogue/aksessuary-chasy/umnye-chasy-apple/2024gpscellular/",
+    "norm": "apple watch se 2024 gps cellular"
+  },
+  {
+    "name": "Apple Watch 10 GPS",
+    "url": "https://1click.ru/catalogue/aksessuary-chasy/umnye-chasy-apple/10-gps/",
+    "norm": "apple watch 10 gps"
+  },
+  {
+    "name": "Apple Watch SE 2 GPS",
+    "url": "https://1click.ru/catalogue/aksessuary-chasy/umnye-chasy-apple/2-gps/",
+    "norm": "apple watch se 2 gps"
+  },
+  {
+    "name": "Умный браслет Xiaomi Mi Smart Band 9 Pro Global",
+    "url": "https://1click.ru/catalogue/aksessuary-chasy/gadzhety-dlya-sporta-i-zdorovya/band9proglobal/",
+    "norm": "умный браслет xiaomi mi smart band 9 pro global"
+  },
+  {
+    "name": "Умный браслет Xiaomi Mi Smart Band 10",
+    "url": "https://1click.ru/catalogue/aksessuary-chasy/gadzhety-dlya-sporta-i-zdorovya/umnyechasyibrasletygadjetydlyasportaizdorovyaumnyybrasletxiaomimismartband10/",
+    "norm": "умный браслет xiaomi mi smart band 10"
+  },
+  {
+    "name": "Умный браслет Xiaomi Smart Band 9 Active",
+    "url": "https://1click.ru/catalogue/aksessuary-chasy/gadzhety-dlya-sporta-i-zdorovya/umnyechasyibrasletygadjetydlyasportaizdorovyaumnyybrasletxiaomismartband9active/",
+    "norm": "умный браслет xiaomi smart band 9 active"
+  }
+]

@@ -74,6 +74,8 @@ _NORM_RE = [
     (re.compile(r'\b(\d+)\s*тб\b', re.I), r'\1tb'),
     (re.compile(r'\b(\d+)\s*мп\b', re.I), r'\1mp'),
     (re.compile(r'\b(nano|micro|esim|plusesim|nano\+esim|dual\s*sim|без\s*rustore|bez\s*rustore|rustore|bez)\b', re.I), ''),
+    # «S25+» → «S25 plus» до удаления пунктуации, иначе tier-токен теряется
+    (re.compile(r'(?<=[a-z0-9])\+'), ' plus'),
     (re.compile(r'\b[A-Z0-9]{6,}\b'), ''),   # артикулы заглавными (MLNC3AHA)
     (re.compile(r'\b(?=[a-z]*[0-9])[a-z][a-z0-9]{5,}\b'), ''),  # артикулы строчными (mg8g4kha)
     (re.compile(r'[+/|()[\]«»""„\-\",\'`]'), ' '),
@@ -336,6 +338,48 @@ def best_match(our_name: str, catalog: list[dict]) -> tuple[dict | None, int]:
     return None, 0
 
 
+def best_match_general(our_name: str, catalog: list[dict]) -> tuple[dict | None, int]:
+    """Матчинг для каталогов с ОБЩИМИ названиями (без хранилища/цвета).
+
+    Например, 1click.ru даёт «iPhone 16 Pro Max», а в нашей БД
+    «Apple iPhone 16 Pro Max 256 ГБ (Чёрный)».
+    Условие: все токены catalog-записи входят в наши токены, tier совпадает.
+    Среди кандидатов выбирается наиболее специфичный (наибольшее число токенов).
+    """
+    our_struct, our_colors = normalize_with_colors(our_name)
+    our_tokens = frozenset(our_struct.split())
+    if not our_tokens:
+        return None, 0
+    our_tier = our_tokens & _TIER_TOKENS
+
+    best_with_color: tuple[dict, int] | None = None   # (item, token_count)
+    best_without_color: tuple[dict, int] | None = None
+
+    for item in catalog:
+        item_struct, item_colors = normalize_with_colors(item["name"])
+        item_tokens = frozenset(item_struct.split())
+        if not item_tokens:
+            continue
+        if (item_tokens & _TIER_TOKENS) != our_tier:
+            continue
+        # все токены каталога должны присутствовать в нашем названии
+        if not item_tokens <= our_tokens:
+            continue
+        n = len(item_tokens)
+        if our_colors & item_colors:
+            if best_with_color is None or n > best_with_color[1]:
+                best_with_color = (item, n)
+        else:
+            if best_without_color is None or n > best_without_color[1]:
+                best_without_color = (item, n)
+
+    if best_with_color:
+        return best_with_color[0], 100
+    if best_without_color:
+        return best_without_color[0], 90
+    return None, 0
+
+
 def run_matching(
     histore: list[dict],
     beeline: list[dict],
@@ -368,9 +412,9 @@ def run_matching(
         if item:
             bl_url = item["url"]
 
-        # 1click.ru — все бренды
+        # 1click.ru — все бренды; каталог содержит общие названия без хранилища
         oc_url, oc_score = '', 0
-        item, oc_score = best_match(name, oneclick)
+        item, oc_score = best_match_general(name, oneclick)
         if item:
             oc_url = item["url"]
 
