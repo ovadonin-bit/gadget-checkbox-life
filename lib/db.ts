@@ -17,14 +17,14 @@ export { sql }
 
 // ─── Categories ──────────────────────────────────────────────────────────────
 
-export async function getPublishedRootCategories(): Promise<Pick<Category, 'id' | 'slug' | 'name' | 'sort_order'>[]> {
+export async function getPublishedRootCategories(): Promise<Pick<Category, 'id' | 'slug' | 'name' | 'sort_order' | 'meta_title'>[]> {
   const rows = await sql`
-    SELECT id, slug, name, sort_order
+    SELECT id, slug, name, sort_order, meta_title
     FROM g_categories
     WHERE is_published = true AND parent_id IS NULL
     ORDER BY sort_order ASC
   `
-  return rows as unknown as Pick<Category, 'id' | 'slug' | 'name' | 'sort_order'>[]
+  return rows as unknown as Pick<Category, 'id' | 'slug' | 'name' | 'sort_order' | 'meta_title'>[]
 }
 
 export async function getCategoryBySlug(slug: string): Promise<Category | null> {
@@ -89,6 +89,25 @@ export async function getProductSummaryByCategoryId(categoryId: number): Promise
     ORDER BY in_stock DESC, updated_at DESC
   `
   return rows as unknown as { brand: string; price_rub: number | null; in_stock: boolean }[]
+}
+
+export async function getProductsByBrand(brand: string, limit = 9999, offset = 0): Promise<Product[]> {
+  const rows = await sql`
+    SELECT * FROM g_products
+    WHERE brand = ${brand} AND is_published = true
+    ORDER BY in_stock DESC, updated_at DESC
+    LIMIT ${limit} OFFSET ${offset}
+  `
+  return rows as unknown as Product[]
+}
+
+export async function getProductSummaryByBrand(brand: string): Promise<{ price_rub: number | null; in_stock: boolean; category_id: number }[]> {
+  const rows = await sql`
+    SELECT price_rub, in_stock, category_id
+    FROM g_products
+    WHERE brand = ${brand} AND is_published = true
+  `
+  return rows as unknown as { price_rub: number | null; in_stock: boolean; category_id: number }[]
 }
 
 // Products in the same price range (±10%), ordered by: same category → same brand → price closeness

@@ -23,7 +23,7 @@ const KEY_SPECS: Array<[string, string]> = [
 
 function buildProductMeta(brand: string, name: string, price: number | null, specs: Record<string, string> | null) {
   const priceStr = price != null ? ` ${formatPriceNumber(price)} ₽` : ''
-  const title = `${brand} ${name}${priceStr} — Где купить? Цены. Обзор, характеристики.`
+  const title = `${name}${priceStr} — Где купить? Цены. Обзор, характеристики.`
 
   const keySpecParts: string[] = []
   if (specs) {
