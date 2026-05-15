@@ -1,0 +1,3 @@
+ALTER TABLE g_products
+  ADD COLUMN IF NOT EXISTS histore_url TEXT,
+  ADD COLUMN IF NOT EXISTS beeline_url TEXT;

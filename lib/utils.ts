@@ -20,6 +20,17 @@ export function slugifyBrand(brand: string): string {
     .replace(/[^a-z0-9-]/g, '')
 }
 
+const HISTORE_DEEPLINK = 'https://wpmsx.com/g/hwysxaae1b7ad04f0a593a4ea8cf25/?erid=2bL9aMPo2e49hMef4piUAotQ6a'
+const BEELINE_DEEPLINK = 'https://rcpsj.com/g/exxsgtkm6c7ad04f0a59dbadac95b8/?erid=2bL9aMPo2e49hMef4phUdXKkvx'
+
+export function buildHistoreDeeplink(productUrl: string): string {
+  return `${HISTORE_DEEPLINK}&ulp=${encodeURIComponent(productUrl)}`
+}
+
+export function buildBeelineDeeplink(productUrl: string): string {
+  return `${BEELINE_DEEPLINK}&ulp=${encodeURIComponent(productUrl)}`
+}
+
 /**
  * Превращает ссылку biggeek.ru в Admitad-deeplink.
  * Формат заполнится после получения оффера в Admitad.

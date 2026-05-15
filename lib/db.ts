@@ -142,7 +142,7 @@ export async function getBoughtTogetherProducts(
   return rows as unknown as Product[]
 }
 
-export async function getAllPublishedProductsForBrand(): Promise<Pick<Product, 'id' | 'slug' | 'brand' | 'category_id' | 'price_rub' | 'in_stock' | 'is_published' | 'image_urls' | 'name' | 'meta_title' | 'meta_description' | 'old_price_rub' | 'updated_at' | 'biggeek_url' | 'biggeek_product_id' | 'sku' | 'description_html' | 'specs'>[]> {
+export async function getAllPublishedProductsForBrand(): Promise<Product[]> {
   const rows = await sql`
     SELECT * FROM g_products WHERE is_published = true
   `

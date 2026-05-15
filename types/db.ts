@@ -34,6 +34,8 @@ export interface Product {
   meta_description: string | null
   updated_at: string
   is_published: boolean
+  histore_url: string | null
+  beeline_url: string | null
 }
 
 export interface PriceHistoryRow {

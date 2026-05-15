@@ -5,7 +5,7 @@ import Link from 'next/link'
 import { getProductBySlug, getCategoryById, getSamePriceProducts, getBoughtTogetherProducts } from '@/lib/db'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { ProductCard } from '@/components/ProductCard'
-import { formatPrice, buildAffiliateLink } from '@/lib/utils'
+import { formatPrice, buildAffiliateLink, buildHistoreDeeplink, buildBeelineDeeplink } from '@/lib/utils'
 import { splitSpecs } from '@/lib/specs'
 
 export const revalidate = 3600
@@ -181,8 +181,33 @@ export default async function ProductPage({ params }: Props) {
               Купить на biggeek.ru
             </a>
 
+            {(product.histore_url || product.beeline_url) && (
+              <div className="flex flex-col gap-2 mt-2">
+                {product.histore_url && (
+                  <a
+                    href={buildHistoreDeeplink(product.histore_url)}
+                    target="_blank"
+                    rel="nofollow noopener sponsored"
+                    className="block w-full text-center bg-white hover:bg-gray-50 text-gray-900 font-medium text-sm py-3 rounded-xl border border-gray-200 transition-colors"
+                  >
+                    Купить на Hi Store
+                  </a>
+                )}
+                {product.beeline_url && (
+                  <a
+                    href={buildBeelineDeeplink(product.beeline_url)}
+                    target="_blank"
+                    rel="nofollow noopener sponsored"
+                    className="block w-full text-center bg-white hover:bg-gray-50 text-gray-900 font-medium text-sm py-3 rounded-xl border border-gray-200 transition-colors"
+                  >
+                    Купить на Билайн.ру
+                  </a>
+                )}
+              </div>
+            )}
+
             <p className="text-xs text-gray-400 mt-3 leading-relaxed">
-              Партнёрская ссылка. Цена и наличие могут отличаться от указанных — актуальные данные смотрите на сайте продавца.
+              Партнёрские ссылки. Цена и наличие могут отличаться от указанных — актуальные данные смотрите на сайте продавца.
             </p>
 
             <div itemProp="seller" itemScope itemType="https://schema.org/Organization" className="hidden">
