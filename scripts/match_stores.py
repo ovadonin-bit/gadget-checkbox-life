@@ -68,7 +68,7 @@ MATCH_THRESHOLD = 80  # минимальный % совпадения
 
 # Таблица замен единиц и мусорных слов
 _NORM_RE = [
-    (re.compile(r'\bсмартфон\b|\bпланшет\b|\bноутбук\b|\bнаушники\b|\bчасы\b', re.I), ''),
+    (re.compile(r'\bсмартфон\b|\bпланшет\b|\bноутбук\b|\bнаушники\b|\bчасы\b|\bмоноблок\b', re.I), ''),
     (re.compile(r'\b(smartfon|planshet|noutbuk|naushniki|chasy)\b', re.I), ''),  # Beeline slug transliterations
     (re.compile(r'\b(\d+)\s*гб\b', re.I), r'\1gb'),
     (re.compile(r'\b(\d+)\s*тб\b', re.I), r'\1tb'),
@@ -78,13 +78,28 @@ _NORM_RE = [
     # RAM-токены (4/6/8/12/16/24 ГБ) не нужны для матчинга — только storage
     (re.compile(r'\b(4|6|8|10|12|16|24)gb\b', re.I), ''),
     (re.compile(r'\b(nano|micro|esim|plusesim|nano\+esim|dual\s*sim|без\s*rustore|bez\s*rustore|rustore|bez)\b', re.I), ''),
+    # «версия Global» — суффикс международных версий, не несёт информации для матчинга
+    (re.compile(r'\bверсия\s+global\b|\bglobal\s+версия\b|\bверсия\b', re.I), ''),
+    # «(версия Global)» оставляет bare «global» — тоже убираем
+    (re.compile(r'\bglobal\b', re.I), ''),
+    # 5G — Beeline часто добавляет его, у нас нет; не должен блокировать матчинг
+    (re.compile(r'\b5g\b', re.I), ''),
+    # Beeline: «только с eSIM» → после strip esim остаётся «s» или «с»; удалим
+    (re.compile(r'\b(tolko|только|только с|tolko s)\b', re.I), ''),
     # «S25+» → «S25 plus» до удаления пунктуации, иначе tier-токен теряется
     (re.compile(r'(?<=[a-z0-9])\+'), ' plus'),
     (re.compile(r'\b[A-Z0-9]{6,}\b'), ''),   # артикулы заглавными (MLNC3AHA)
     (re.compile(r'\b(?=[a-z]*[0-9])[a-z][a-z0-9]{5,}\b'), ''),  # артикулы строчными (mg8g4kha)
     (re.compile(r'[+/|()[\]«»""„\-\",\'`]'), ' '),
+    # Одиночные буквы-остатки (например «с» из «только с eSIM»)
+    (re.compile(r'(?<!\w)\b[a-zа-яёА-ЯЁA-Z]\b(?!\w)'), ''),
+    # Одиночные цифры ≤ 3 (мусор после strip, не хранилище)
+    (re.compile(r'\b[123]\b'), ''),
     (re.compile(r'\s{2,}'), ' '),
 ]
+
+# Xiaomi POCO продаётся у Beeline без префикса «xiaomi»
+_POCO_PREFIX_RE = re.compile(r'\bxiaomi\b(?=[\w\s]*\bpoco\b)', re.I)
 
 _COLORS_RU = re.compile(
     r'\b(черный|чёрный|белый|синий|голубой|зеленый|зелёный|красный|желтый|жёлтый|'
@@ -92,15 +107,19 @@ _COLORS_RU = re.compile(
     r'насыщенный|туманно|туманный|шалфейный|лавандовый|космический|натуральный|'
     r'глубокий|светлый|тёмный|темный|снежный|кремовый|пустынный|облачно|небесно|космос|'
     r'серо|тёмно|темно|светло|сияющая|звезда|ночь|'
+    r'титановый|графитовый|пурпурный|изумрудный|аметистовый|лиловый|'
     r'midnight|starlight|natural|black|white|blue|green|red|purple|pink|silver|gold|'
     r'orange|cosmic|deep|light|space|desert|titanium|lavender|sage|teal|ultramarine|'
-    r'mist|slate|storm|sand|clay|cloud|sky|tolko|only|grey)\b',
+    r'mist|slate|storm|sand|clay|cloud|sky|tolko|only|grey|gray|'
+    r'belyi|sinii|goluboi|fioletovyi|chiornyi|chrnyi|glyancevyi|seryi|kosmos|'
+    r'krasnyi|rozovyi|zelonyi|zelyonyi|zolotoi|serebristyi)\b',
     re.I,
 )
 
 
 def normalize(name: str) -> str:
     s = name.lower().strip()
+    s = _POCO_PREFIX_RE.sub('', s)
     for pattern, repl in _NORM_RE:
         s = pattern.sub(repl, s)
     s = _COLORS_RU.sub('', s)
@@ -113,6 +132,7 @@ def normalize_with_colors(name: str) -> tuple[str, set[str]]:
     structural_norm — токены без цветов (iphone+17+256gb+pro).
     colors — найденные цветовые токены для опциональной проверки."""
     s = name.lower().strip()
+    s = _POCO_PREFIX_RE.sub('', s)
     for pattern, repl in _NORM_RE:
         s = pattern.sub(repl, s)
     colors = {m.group(0).lower() for m in _COLORS_RU.finditer(s)}
@@ -298,14 +318,13 @@ def fuzzy_score(a: str, b: str) -> int:
 
 
 _TIER_TOKENS = frozenset({'pro', 'max', 'air', 'ultra', 'plus', 'mini', 'lite'})
-_MAX_EXTRA = 3  # максимум лишних НЕ-тировых токенов у кандидата
+_MAX_EXTRA = 1  # максимум лишних НЕ-тировых токенов у кандидата
 
 def best_match(our_name: str, catalog: list[dict]) -> tuple[dict | None, int]:
-    """Двухпроходный матчинг:
+    """Двухпроходный матчинг с выбором кандидата с минимальными лишними токенами:
     1. Tier совпадает точно + все наши структурные токены у кандидата + цвет → score 100
     2. То же, без цвета → score 90
-    Tier (pro/max/air/ultra/plus/mini) должен совпадать в обоих направлениях.
-    Допускаем у кандидата до _MAX_EXTRA лишних НЕ-тировых токенов.
+    Среди кандидатов одного уровня предпочитается тот, у кого меньше лишних токенов.
     """
     our_struct, our_colors = normalize_with_colors(our_name)
     our_tokens = frozenset(our_struct.split())
@@ -313,8 +332,9 @@ def best_match(our_name: str, catalog: list[dict]) -> tuple[dict | None, int]:
         return None, 0
     our_tier = our_tokens & _TIER_TOKENS
 
-    with_color: dict | None = None
-    without_color: dict | None = None
+    # (extra_count, item) — лучший среди с-цветом и без-цвета
+    best_with_color: tuple[int, dict] | None = None
+    best_without_color: tuple[int, dict] | None = None
 
     for item in catalog:
         item_struct, item_colors = normalize_with_colors(item["name"])
@@ -327,18 +347,20 @@ def best_match(our_name: str, catalog: list[dict]) -> tuple[dict | None, int]:
             continue
         # Кандидат не должен иметь много лишних НЕ-тировых токенов
         extra_non_tier = (item_tokens - our_tokens) - _TIER_TOKENS
-        if len(extra_non_tier) > _MAX_EXTRA:
+        extra_count = len(extra_non_tier)
+        if extra_count > _MAX_EXTRA:
             continue
         if our_colors & item_colors:
-            with_color = item
-            break
-        if without_color is None:
-            without_color = item
+            if best_with_color is None or extra_count < best_with_color[0]:
+                best_with_color = (extra_count, item)
+        else:
+            if best_without_color is None or extra_count < best_without_color[0]:
+                best_without_color = (extra_count, item)
 
-    if with_color:
-        return with_color, 100
-    if without_color:
-        return without_color, 90
+    if best_with_color:
+        return best_with_color[1], 100
+    if best_without_color:
+        return best_without_color[1], 90
     return None, 0
 
 
