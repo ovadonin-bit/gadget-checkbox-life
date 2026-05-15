@@ -53,7 +53,7 @@ BEELINE_CATALOG_FILE = Path(__file__).parent / "beeline_catalog.json"
 MATCH_CSV = Path(__file__).parent / "store_matches.csv"
 
 DELAY = 0.6
-MATCH_THRESHOLD = 86  # минимальный % совпадения (5/6 = 83% отсекает Pro←ProMax)
+MATCH_THRESHOLD = 80  # минимальный % совпадения
 
 # ── Нормализация названий ───────────────────────────────────────────────────
 
@@ -214,11 +214,18 @@ def fuzzy_score(a: str, b: str) -> int:
     return int(100 * len(inter) / max(len(ta), len(tb)))
 
 
+def _tier(norm: str) -> tuple[bool, bool]:
+    """Возвращает (has_pro, has_max) для проверки тира модели."""
+    tokens = set(norm.split())
+    return ('pro' in tokens, 'max' in tokens)
+
+
 def best_match(norm_query: str, catalog: list[dict]) -> tuple[dict | None, int]:
     best, best_score = None, 0
+    q_tier = _tier(norm_query)
     for item in catalog:
         s = fuzzy_score(norm_query, item["norm"])
-        if s > best_score:
+        if s > best_score and _tier(item["norm"]) == q_tier:
             best, best_score = item, s
     return best, best_score
 
