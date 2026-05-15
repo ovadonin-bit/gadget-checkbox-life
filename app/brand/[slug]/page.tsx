@@ -22,8 +22,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const brand = brandFromSlug(slug)
   return {
-    title: `${brand} — все товары`,
-    description: `Каталог товаров ${brand}: смартфоны, ноутбуки, аксессуары с актуальными ценами через biggeek.ru.`,
+    title: `${brand} — Купить. Самая низкая цена в России.`,
+    description: `${brand} — честное описание, полные характеристики и актуальные цены. Сравни с альтернативами и купи выгодно.`,
     alternates: { canonical: `https://gadget.checkbox.life/brand/${slug}` },
   }
 }

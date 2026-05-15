@@ -19,8 +19,8 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const category = await getCategoryBySlug(slug)
   if (!category) return {}
   return {
-    title: category.meta_title ?? category.name,
-    description: category.meta_description ?? undefined,
+    title: category.meta_title ?? `${category.name} — Купить. Самая низкая цена в России.`,
+    description: category.meta_description ?? `${category.name} — честное описание, полные характеристики и актуальные цены. Сравни с альтернативами и купи выгодно.`,
     alternates: { canonical: `https://gadget.checkbox.life/category/${category.slug}` },
   }
 }

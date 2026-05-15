@@ -5,10 +5,41 @@ import Link from 'next/link'
 import { getProductBySlug, getCategoryById, getSamePriceProducts, getBoughtTogetherProducts } from '@/lib/db'
 import { Breadcrumbs } from '@/components/Breadcrumbs'
 import { ProductCard } from '@/components/ProductCard'
-import { formatPrice, buildAffiliateLink, buildHistoreDeeplink, buildBeelineDeeplink } from '@/lib/utils'
+import { formatPrice, formatPriceNumber, buildAffiliateLink, buildHistoreDeeplink, buildBeelineDeeplink } from '@/lib/utils'
 import { splitSpecs } from '@/lib/specs'
 
 export const revalidate = 3600
+
+const KEY_SPECS: Array<[string, string]> = [
+  ['Объем встроенной памяти', 'памяти'],
+  ['Объем оперативной памяти', 'RAM'],
+  ['Процессор', 'процессор'],
+  ['Экран', 'экран'],
+  ['Ёмкость аккумулятора', 'батарея'],
+  ['Основная камера', 'камера'],
+  ['Размер корпуса', 'размер'],
+  ['Время работы', 'автономность'],
+]
+
+function buildProductMeta(brand: string, name: string, price: number | null, specs: Record<string, string> | null) {
+  const priceStr = price != null ? ` ${formatPriceNumber(price)} ₽` : ''
+  const title = `${brand} ${name}${priceStr} — Где купить? Цены. Обзор, характеристики.`
+
+  const keySpecParts: string[] = []
+  if (specs) {
+    for (const [key, label] of KEY_SPECS) {
+      if (specs[key]) {
+        keySpecParts.push(`${specs[key]} ${label}`)
+        if (keySpecParts.length >= 2) break
+      }
+    }
+  }
+  const specsStr = keySpecParts.length > 0 ? ` ${keySpecParts.join(', ')}.` : ''
+  const priceDescStr = price != null ? ` за ${formatPriceNumber(price)} ₽` : ''
+  const description = `Купить ${brand} ${name}${priceDescStr} — характеристики, фото, описание.${specsStr} Доставка по России.`
+
+  return { title, description }
+}
 
 interface Props {
   params: Promise<{ slug: string }>
@@ -18,11 +49,15 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const { slug } = await params
   const product = await getProductBySlug(slug)
   if (!product) return {}
+  const { title: autoTitle, description: autoDescription } = buildProductMeta(
+    product.brand,
+    product.name,
+    product.price_rub,
+    product.specs as Record<string, string> | null,
+  )
   return {
-    title: product.meta_title ?? `${product.name} — характеристики и цена`,
-    description:
-      product.meta_description ??
-      `${product.brand} ${product.name} — описание, характеристики и актуальная цена. Покупка через biggeek.ru.`,
+    title: product.meta_title ?? autoTitle,
+    description: product.meta_description ?? autoDescription,
     alternates: { canonical: `https://gadget.checkbox.life/product/${product.slug}` },
     openGraph: {
       title: product.name,
