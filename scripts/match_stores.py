@@ -73,6 +73,10 @@ _NORM_RE = [
     (re.compile(r'\b(\d+)\s*гб\b', re.I), r'\1gb'),
     (re.compile(r'\b(\d+)\s*тб\b', re.I), r'\1tb'),
     (re.compile(r'\b(\d+)\s*мп\b', re.I), r'\1mp'),
+    # Beeline склеивает RAM+storage: «8256gb» → «256gb»
+    (re.compile(r'\b(?:4|6|8|12|16|24)(128|256|512|1024)gb\b', re.I), r'\1gb'),
+    # RAM-токены (4/6/8/12/16/24 ГБ) не нужны для матчинга — только storage
+    (re.compile(r'\b(4|6|8|10|12|16|24)gb\b', re.I), ''),
     (re.compile(r'\b(nano|micro|esim|plusesim|nano\+esim|dual\s*sim|без\s*rustore|bez\s*rustore|rustore|bez)\b', re.I), ''),
     # «S25+» → «S25 plus» до удаления пунктуации, иначе tier-токен теряется
     (re.compile(r'(?<=[a-z0-9])\+'), ' plus'),
