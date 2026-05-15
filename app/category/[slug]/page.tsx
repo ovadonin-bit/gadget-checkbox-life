@@ -85,6 +85,23 @@ export default async function CategoryPage({ params }: Props) {
         </div>
       )}
 
+      {brands.length > 0 && (
+        <section className="mb-8">
+          <h2 className="text-lg font-semibold text-gray-900 mb-4">Бренды</h2>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-6 gap-3">
+            {brands.map(([brand]) => (
+              <Link
+                key={brand}
+                href={`/brand/${brand.toLowerCase().replace(/\s+/g, '-')}`}
+                className="block rounded-xl border border-gray-200 hover:border-gray-300 hover:shadow-sm transition-all bg-white p-4 text-center"
+              >
+                <div className="text-sm font-medium text-gray-900">{brand}</div>
+              </Link>
+            ))}
+          </div>
+        </section>
+      )}
+
       {products.length === 0 ? (
         <div className="rounded-xl border border-gray-200 bg-gray-50 p-8 text-center text-sm text-gray-500">
           Товары в этой категории появятся после первого парсинга. Возвращайтесь позже.
@@ -108,23 +125,6 @@ export default async function CategoryPage({ params }: Props) {
             </div>
           ))}
         </div>
-      )}
-
-      {brands.length > 0 && (
-        <section className="mt-12 pt-8 border-t border-gray-200">
-          <h2 className="text-sm font-semibold text-gray-900 mb-3">Бренды в категории</h2>
-          <div className="flex flex-wrap gap-2">
-            {brands.map(([brand, count]) => (
-              <Link
-                key={brand}
-                href={`/brand/${brand.toLowerCase().replace(/\s+/g, '-')}`}
-                className="text-xs text-gray-600 bg-gray-100 hover:bg-gray-200 px-2.5 py-1 rounded-full"
-              >
-                {brand} <span className="text-gray-400">· {count}</span>
-              </Link>
-            ))}
-          </div>
-        </section>
       )}
     </main>
   )
