@@ -67,7 +67,7 @@ _NORM_RE = [
     (re.compile(r'\b(nano|micro|esim|plusesim|nano\+esim|dual\s*sim|без\s*rustore|bez\s*rustore|rustore|bez)\b', re.I), ''),
     (re.compile(r'\b[A-Z0-9]{6,}\b'), ''),   # артикулы заглавными (MLNC3AHA)
     (re.compile(r'\b(?=[a-z]*[0-9])[a-z][a-z0-9]{5,}\b'), ''),  # артикулы строчными (mg8g4kha)
-    (re.compile(r'[+/|()[\]«»""„]'), ' '),
+    (re.compile(r'[+/|()[\]«»""„\-]'), ' '),
     (re.compile(r'\s{2,}'), ' '),
 ]
 
@@ -75,10 +75,10 @@ _COLORS_RU = re.compile(
     r'\b(черный|чёрный|белый|синий|голубой|зеленый|зелёный|красный|желтый|жёлтый|'
     r'фиолетовый|розовый|серый|серебристый|золотой|оранжевый|бежевый|коричневый|'
     r'насыщенный|туманно|туманный|шалфейный|лавандовый|космический|натуральный|'
-    r'глубокий|светлый|тёмный|темный|снежный|кремовый|пустынный|'
+    r'глубокий|светлый|тёмный|темный|снежный|кремовый|пустынный|облачно|небесно|'
     r'midnight|starlight|natural|black|white|blue|green|red|purple|pink|silver|gold|'
     r'orange|cosmic|deep|light|space|desert|titanium|lavender|sage|teal|ultramarine|'
-    r'mist|slate|storm|sand|clay)\b',
+    r'mist|slate|storm|sand|clay|cloud|sky|tolko|only)\b',
     re.I,
 )
 
